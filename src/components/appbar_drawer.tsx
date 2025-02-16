@@ -9,8 +9,7 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon, ListItemText, Stack,
-  Toolbar, Typography
+  ListItemIcon, ListItemText, Toolbar, Typography
 } from "@mui/material";
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
