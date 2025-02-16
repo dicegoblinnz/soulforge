@@ -1,41 +1,51 @@
 [
     {
+        "id": 0,
         "name": "Justice",
         "desc": "JusticeJusticeJustice"
     },
     {
+        "id": 1,
         "name": "Honor",
         "desc": "HonorHonorHonor"
     },
     {
+        "id": 2,
         "name": "Compassion",
         "desc": "CompassionCompassionCompassion"
     },
     {
+        "id": 3,
         "name": "Freedom",
         "desc": "FreedomFreedomFreedom"
     },
     {
+        "id": 4,
         "name": "Tradition",
         "desc": "TraditionTraditionTradition"
     },
     {
+        "id": 5,
         "name": "Knowledge",
         "desc": "KnowledgeKnowledgeKnowledge"
     },
     {
+        "id": 6,
         "name": "Power",
         "desc": "PowerPowerPower"
     },
     {
+        "id": 7,
         "name": "Family",
         "desc": "FamilyFamilyFamily"
     },
     {
+        "id": 8,
         "name": "Faith",
         "desc": "FaithFaithFaith"
     },
     {
+        "id": 9,
         "name": "Pragmatism",
         "desc": "PragmatismPragmatismPragmatism"
     }
