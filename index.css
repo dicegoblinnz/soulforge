@@ -1,0 +1,39 @@
+:root {
+  --primary-colour: #302AE6;
+  --secondary-colour: #536390;
+  --bg-colour: #424242;
+  --font-colour: #fff;
+  --heading-colour: #bfbfbf;
+
+  --pad-unit: 4px;
+  --card-pad: calc(var(--pad-unit) * 4);
+
+  --depth-unit: 8px;
+  --card-depth: calc(var(--depth-unit) * 4);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-colour: #302AE6;
+    --secondary-colour: #536390;
+    --font-colour: #424242;
+    --bg-colour: #fff;
+    --heading-colour: #292922;
+  }
+}
+
+
+.sheet-container {
+  margin: auto;
+  width: 1000px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
