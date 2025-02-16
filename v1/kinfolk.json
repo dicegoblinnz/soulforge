@@ -1,0 +1,40 @@
+{
+	"kinfolk_data": [
+		{
+			"id": 0,
+			"name": "Humanfolk",
+			"desc": "HumanfolkHumanfolkHumanfolk"
+		},
+		{
+			"id": 1,
+			"name": "Mammalfolk",
+			"desc": "MammalfolkMammalfolkMammalfolk"
+		}
+	],
+	"kinfolk_abilities": [
+		{
+			"id": 0,
+			"kinfolk_id": 0,
+			"name": "Knowledge",
+			"desc": "KnowledgeKnowledgeKnowledge"
+		},
+		{
+			"id": 1,
+			"kinfolk_id": 0,
+			"name": "Bald",
+			"desc": "Bald"
+		},
+		{
+			"id": 2,
+			"kinfolk_id": 1,
+			"name": "Hairy",
+			"desc": "HairyHairyHairy"
+		},
+		{
+			"id": 3,
+			"kinfolk_id": 1,
+			"name": "Wildshift",
+			"desc": "WildshiftWildshiftWildshift"
+		}
+	]
+}
