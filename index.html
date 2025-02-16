@@ -13,14 +13,14 @@
     window.onload = onPageLoad;
   </script>
 </head>
-<body>
+<body class="bg-blue-100">
 
 
-<div id="ability-template" class="p-3 border border-gray-300 rounded-lg hidden">
+<div id="ability-template" class="p-3 border border-blue-600 rounded-lg shadow-md hover:shadow-xl transition-all duration-100 bg-blue-100 hover:bg-blue-200 hidden">
   <div class="flex justify-between">
-    <h3 class="text-base font-bold" id="keystone_ability_title">Ability 0</h3>
+    <h3 class="text-lg font-semibold text-blue-900" id="keystone_ability_title">Ability</h3>
     <div class="cursor-pointer noselect">
-      <label for="keystone_ability_exhaust" class="text-sm cursor-pointer font-medium text-gray-700">Exhaust</label>
+      <label for="keystone_ability_exhaust" class="text-md cursor-pointer font-medium text-gray-800">Exhaust</label>
       <input type="checkbox" id="keystone_ability_exhaust" name="keystone_ability_exhaust" class="cursor-pointer">
     </div>
   </div>
@@ -31,10 +31,10 @@
 <div class="sheet-container p-4 rounded overflow-hidden shadow-lg">
   <div class="sheet-header">
     <div class="flex justify-between items-center">
-      <h1 class="text-3xl font-bold">SoulForge character sheet</h1>
-      <div class="flex gap-2">
-        <button class="p-2" onclick="downloadCharacter()">Download</button>
-        <button class="p-2" onclick="loadCharacterFromFile()">Load from file</button>
+      <h1 class="text-4xl font-bold text-blue-900">SoulForge character sheet</h1>
+      <div class="flex gap-4">
+        <button class="px-4 py-2 bg-blue-600 text-blue-100 rounded-lg hover:bg-blue-700 transition duration-100" onclick="downloadCharacter()">Download</button>
+        <button class="px-4 py-2 bg-blue-600 text-blue-100 rounded-lg hover:bg-blue-700 transition duration-100" onclick="loadCharacterFromFile()">Load from file</button>
         <input
             id="character_load_file" onchange="loadCharacterFromFile()"
             type="file" accept=".json" class="hidden"
@@ -45,26 +45,26 @@
 
   <div id="character_overview_container" class="pt-6">
     <div id="character_overview_header">
-      <h2 class="text-2xl font-bold">Lore</h2>
+      <h2 class="text-3xl font-semibold text-blue-900">Lore</h2>
     </div>
 
     <!-- Name and True Name -->
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-6 mt-6">
       <div>
-        <label for="character_name" class="block text-sm font-medium text-gray-700">Name</label>
+        <label for="character_name" class="block text-md font-medium text-gray-900">Name</label>
         <input type="text" id="character_name" name="name" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" placeholder="Enter your character's name">
       </div>
       <div>
-        <label for="character_true_name" class="block text-sm font-medium text-gray-700">True Name</label>
+        <label for="character_true_name" class="block text-md font-medium text-gray-900">True Name</label>
         <input type="text" id="character_true_name" name="true_name" class="mt-1 p-2 border border-gray-300 rounded-lg w-full" placeholder="Enter your character's true name">
       </div>
     </div>
 
     <!-- Character lore -->
-    <div class="flex justify-between gap-4 pt-4">
+    <div class="flex justify-between gap-6 pt-4">
       <!-- Aspiration -->
       <div id="aspiration_container" class="flex-1">
-        <label for="character_aspiration" class="block text-sm font-medium text-gray-700">Aspiration</label>
+        <label for="character_aspiration" class="block text-md font-medium text-gray-900">Aspiration</label>
         <select id="character_aspiration" name="aspiration" class="mt-1 p-2 border border-gray-300 rounded-lg w-full">
           <option value="custom">Custom</option>
         </select>
@@ -72,7 +72,7 @@
 
       <!-- Core Value -->
       <div id="core_value_container" class="flex-1">
-        <label for="character_core_value" class="block text-sm font-medium text-gray-700">Core Value</label>
+        <label for="character_core_value" class="block text-md font-medium text-gray-900">Core Value</label>
         <select id="character_core_value" name="core-value" class="mt-1 p-2 border border-gray-300 rounded-lg w-full">
           <option value="custom">Custom</option>
         </select>
@@ -80,7 +80,7 @@
 
       <!-- Vice -->
       <div id="vice_container" class="flex-1">
-        <label for="character_vice" class="block text-sm font-medium text-gray-700">Vice</label>
+        <label for="character_vice" class="block text-md font-medium text-gray-900">Vice</label>
         <select id="character_vice" name="vice" class="mt-1 p-2 border border-gray-300 rounded-lg w-full">
           <option value="custom">Custom</option>
         </select>
@@ -90,35 +90,33 @@
 
   <!-- Keystone -->
   <div id="character_keystone_container" class="pt-6">
-    <div id="character_keystone_header">
-      <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-bold" id="keystone_title">Keystone</h2>
+    <div id="character_keystone_header" class="flex justify-between items-center">
+      <h2 class="text-3xl font-semibold text-blue-900" id="keystone_title">Keystone</h2>
 
-        <!-- Keystone -->
-        <div id="keystone_container" class="flex-1 flex justify-between">
-          <label for="character_keystone" class="block text-sm font-medium text-gray-700"></label>
-          <select id="character_keystone" name="keystone" class="p-2 border border-gray-300 rounded-lg" onchange="keystoneUpdate()">
-            <option value="custom">Custom</option>
-          </select>
-        </div>
+      <!-- Keystone -->
+      <div id="keystone_container" class="flex-1 flex justify-between">
+        <label for="character_keystone" class="block text-md font-medium text-gray-900"></label>
+        <select id="character_keystone" name="keystone" class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="keystoneUpdate()">
+          <option value="custom">Custom</option>
+        </select>
       </div>
     </div>
 
     <!-- Keystone abilities -->
-    <div id="keystone_ability_container" class="pt-2 grid grid-cols-2 gap-4"></div>
+    <div id="keystone_ability_container" class="pt-4 grid grid-cols-2 gap-4"></div>
   </div>
 
   <!-- Archetype -->
   <div id="character_archetype_container" class="pt-6 flex-1">
     <div id="character_archetype_header">
       <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-bold" id="archetype_title">Archetype</h2>
+        <h2 class="text-3xl font-semibold text-blue-900" id="archetype_title">Archetype</h2>
       </div>
     </div>
 
     <!-- Temporary tags -->
     <div id="archetype_container" class="pt-2 grid grid-cols-2 gap-4">
-      <h2 class="text-2xl font-bold col-span-2 text-center" id="archetype_tbd">TBD</h2>
+      <h2 class="text-2xl font-bold col-span-3 text-center text-purple-900" id="archetype_tbd">TBD</h2>
     </div>
   </div>
 
@@ -126,11 +124,11 @@
   <div id="character_kinfolk_container" class="pt-6">
     <div id="character_kinfolk_header">
       <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-bold" id="kinfolk_title">Kinfolk</h2>
+        <h2 class="text-3xl font-semibold text-blue-900" id="kinfolk_title">Kinfolk</h2>
 
         <!-- Kinfolk -->
         <div id="kinfolk_container" class="flex-1 flex justify-between">
-          <label for="character_kinfolk" class="block text-sm font-medium text-gray-700"></label>
+          <label for="character_kinfolk" class="block text-md font-medium text-gray-900"></label>
           <select id="character_kinfolk" name="kinfolk" class="p-2 border border-gray-300 rounded-lg" onchange="kinfolkUpdate()">
             <option value="custom">Custom</option>
           </select>
@@ -146,13 +144,13 @@
   <div id="character_traits_container" class="pt-6">
     <div id="character_traits_header">
       <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-bold" id="traits_title">Traits</h2>
+        <h2 class="text-3xl font-semibold text-blue-900" id="traits_title">Traits</h2>
       </div>
     </div>
 
     <!-- Traits -->
     <div id="traits_container" class="pt-2 grid grid-cols-3 gap-4">
-      <h2 class="text-2xl font-bold col-span-3 text-center" id="traits_tbd">TBD</h2>
+      <h2 class="text-2xl font-bold col-span-3 text-center text-purple-900" id="traits_tbd">TBD</h2>
     </div>
   </div>
 
@@ -161,13 +159,13 @@
     <div id="character_temporary_tags_container" class="pt-6 flex-1">
       <div id="character_temporary_tags_header">
         <div class="flex justify-between items-center">
-          <h2 class="text-2xl font-bold" id="temporary_tags_title">Temporary Tags</h2>
+          <h2 class="text-3xl font-semibold text-blue-900" id="temporary_tags_title">Temporary Tags</h2>
         </div>
       </div>
 
       <!-- Temporary tags -->
       <div id="temporary_tags_container" class="pt-2 grid grid-cols-2 gap-4">
-        <h2 class="text-2xl font-bold col-span-2 text-center" id="temporary_tags_tbd">TBD</h2>
+        <h2 class="text-2xl font-bold col-span-3 text-center text-purple-900" id="temporary_tags_tbd">TBD</h2>
       </div>
     </div>
 
@@ -175,13 +173,13 @@
     <div id="character_afflictions_container" class="pt-6 flex-1">
       <div id="character_afflictions_header">
         <div class="flex justify-between items-center">
-          <h2 class="text-2xl font-bold" id="afflictions_title">Afflictions</h2>
+          <h2 class="text-3xl font-semibold text-blue-900" id="afflictions_title">Afflictions</h2>
         </div>
       </div>
 
       <!-- afflictions -->
       <div id="afflictions_container" class="pt-2 grid grid-cols-2 gap-4">
-        <h2 class="text-2xl font-bold col-span-2 text-center" id="afflictions_tbd">TBD</h2>
+        <h2 class="text-2xl font-bold col-span-3 text-center text-purple-900" id="afflictions_tbd">TBD</h2>
       </div>
     </div>
   </div>
