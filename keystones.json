@@ -1,0 +1,60 @@
+[
+    {
+        "id": 0,
+        "name": "Juggernaut",
+        "desc": "JuggernautJuggernautJuggernaut",
+        "abilities": [
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Bloodbound",
+        "desc": "BloodboundBloodboundBloodbound",
+        "abilities": [
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            },
+            {
+                "name": "Fury",
+                "desc": "FuryFuryFury"
+            }
+        ]
+    }
+]
