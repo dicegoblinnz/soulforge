@@ -1,5 +1,5 @@
 {
-	"kinfolk_data": [
+	"kinfolk": [
 		{
 			"id": 0,
 			"name": "Humanfolk",
@@ -11,7 +11,7 @@
 			"desc": "MammalfolkMammalfolkMammalfolk"
 		}
 	],
-	"kinfolk_abilities": [
+	"abilities": [
 		{
 			"id": 0,
 			"kinfolk_id": 0,
