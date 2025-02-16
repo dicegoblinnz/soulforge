@@ -1,42 +1,42 @@
 [
-  {
-    "name": "Justice",
-    "desc": "JusticeJusticeJustice"
-  },
-  {
-    "name": "Honor",
-    "desc": "HonorHonorHonor"
-  },
-  {
-    "name": "Compassion",
-    "desc": "CompassionCompassionCompassion"
-  },
-  {
-    "name": "Freedom",
-    "desc": "FreedomFreedomFreedom"
-  },
-  {
-    "name": "Tradition",
-    "desc": "TraditionTraditionTradition"
-  },
-  {
-    "name": "Knowledge",
-    "desc": "KnowledgeKnowledgeKnowledge"
-  },
-  {
-    "name": "Power",
-    "desc": "PowerPowerPower"
-  },
-  {
-    "name": "Family",
-    "desc": "FamilyFamilyFamily"
-  },
-  {
-    "name": "Faith",
-    "desc": "FaithFaithFaith"
-  },
-  {
-    "name": "Pragmatism",
-    "desc": "PragmatismPragmatismPragmatism"
-  }
+    {
+        "name": "Justice",
+        "desc": "JusticeJusticeJustice"
+    },
+    {
+        "name": "Honor",
+        "desc": "HonorHonorHonor"
+    },
+    {
+        "name": "Compassion",
+        "desc": "CompassionCompassionCompassion"
+    },
+    {
+        "name": "Freedom",
+        "desc": "FreedomFreedomFreedom"
+    },
+    {
+        "name": "Tradition",
+        "desc": "TraditionTraditionTradition"
+    },
+    {
+        "name": "Knowledge",
+        "desc": "KnowledgeKnowledgeKnowledge"
+    },
+    {
+        "name": "Power",
+        "desc": "PowerPowerPower"
+    },
+    {
+        "name": "Family",
+        "desc": "FamilyFamilyFamily"
+    },
+    {
+        "name": "Faith",
+        "desc": "FaithFaithFaith"
+    },
+    {
+        "name": "Pragmatism",
+        "desc": "PragmatismPragmatismPragmatism"
+    }
 ]
