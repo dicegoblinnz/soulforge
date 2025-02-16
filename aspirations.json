@@ -1,0 +1,42 @@
+[
+	{
+		"name": "Revenge",
+		"desc": "RevengeRevengeRevenge"
+	},
+	{
+		"name": "Mastery",
+		"desc": "MasteryMasteryMastery"
+	},
+	{
+		"name": "Discovery",
+		"desc": "DiscoveryDiscoveryDiscovery"
+	},
+	{
+		"name": "Wealth",
+		"desc": "WealthWealthWealth"
+	},
+	{
+		"name": "Leadership",
+		"desc": "LeadershipLeadershipLeadership"
+	},
+	{
+		"name": "Redemption",
+		"desc": "RedemptionRedemptionRedemption"
+	},
+	{
+		"name": "Protection",
+		"desc": "ProtectionProtectionProtection"
+	},
+	{
+		"name": "Freedom",
+		"desc": "FreedomFreedomFreedom"
+	},
+	{
+		"name": "Connection",
+		"desc": "ConnectionConnectionConnection"
+	},
+	{
+		"name": "Immortality",
+		"desc": "ImmortalityImmortalityImmortality"
+	},
+]
