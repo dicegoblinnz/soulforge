@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Greed",
+        "desc": "GreedGreedGreed"
+    },
+    {
+        "name": "Pride",
+        "desc": "PridePridePride"
+    },
+    {
+        "name": "Wrath",
+        "desc": "WrathWrathWrath"
+    },
+    {
+        "name": "Lust",
+        "desc": "LustLustLust"
+    },
+    {
+        "name": "Envy",
+        "desc": "EnvyEnvyEnvy"
+    },
+    {
+        "name": "Sloth",
+        "desc": "SlothSlothSloth"
+    },
+    {
+        "name": "Gluttony",
+        "desc": "GluttonyGluttonyGluttony"
+    },
+    {
+        "name": "Naivety",
+        "desc": "NaivetyNaivetyNaivety"
+    },
+    {
+        "name": "Recklessness",
+        "desc": "RecklessnessRecklessnessRecklessness"
+    },
+    {
+        "name": "Stubbornness",
+        "desc": "StubbornnessStubbornnessStubbornness"
+    }
+]
