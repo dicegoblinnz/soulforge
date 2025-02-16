@@ -1,19 +1,19 @@
 [
-    {
-        "id": 0,
-        "name": "Juggernaut",
-        "desc": "JuggernautJuggernautJuggernaut",
-        "abilities": [
-            {
+	{
+		"id": 0,
+		"name": "Juggernaut",
+		"desc": "JuggernautJuggernautJuggernaut",
+		"abilities": [
+			{
 				"id": 0,
-                "name": "Momentum",
-                "desc": "Every 2 squares +d6 to your next roll. These dice disappear at the end of your turn.",
+				"name": "Momentum",
+				"desc": "Every 2 squares +d6 to your next roll. These dice disappear at the end of your turn.",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 1,
-                "name": "Fury",
-                "desc": "Gain the Fury tag each time an enemy Action succeeds against you (max 6)",
+				"name": "Fury",
+				"desc": "Gain the Fury tag each time an enemy Action succeeds against you (max 6)",
 				"exhaust": "Gain 3 Fury",
 				"tags": [
 					{
@@ -22,11 +22,11 @@
 						"exhaust": "+d6 Flow"
 					}
 				]
-            },
-            {
+			},
+			{
 				"id": 2,
-                "name": "Retribution",
-                "desc": "As an action, threaten a character. If they target anyone but you, gain 1 Retribution tag.",
+				"name": "Retribution",
+				"desc": "As an action, threaten a character. If they target anyone but you, gain 1 Retribution tag.",
 				"exhaust": "As a free action, trigger Retribution and +2 Retribution tags",
 				"tags": [
 					{
@@ -34,11 +34,11 @@
 						"exhaust": "Explode a die of you or an ally within Close range"
 					}
 				]
-            },
-            {
+			},
+			{
 				"id": 3,
-                "name": "Blood lust",
-                "desc": "As an action, threaten a character. Both you and the character gain the Blood lust affliction",
+				"name": "Blood lust",
+				"desc": "As an action, threaten a character. Both you and the character gain the Blood lust affliction",
 				"exhaust": "Trigger Blood lust on you and up to Force/Heart characters",
 				"afflictions": [
 					{
@@ -46,62 +46,62 @@
 						"exhaust": "All characters with Blood lust gain +2 Edge against each other"
 					}
 				]
-            },
-            {
+			},
+			{
 				"id": 4,
-                "name": "Fury",
-                "desc": "FuryFuryFury",
+				"name": "Fury",
+				"desc": "FuryFuryFury",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 5,
-                "name": "Fury",
-                "desc": "FuryFuryFury",
+				"name": "Fury",
+				"desc": "FuryFuryFury",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 6,
-                "name": "Fury",
-                "desc": "FuryFuryFury",
+				"name": "Fury",
+				"desc": "FuryFuryFury",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 7,
-                "name": "Ultimate: Smash",
-                "desc": "FuryFuryFury",
+				"name": "Ultimate: Smash",
+				"desc": "FuryFuryFury",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "name": "Bloodbound",
-        "desc": "BloodboundBloodboundBloodbound",
-        "abilities": [
-            {
+			}
+		]
+	},
+	{
+		"id": 1,
+		"name": "Bloodbound",
+		"desc": "BloodboundBloodboundBloodbound",
+		"abilities": [
+			{
 				"id": 0,
-                "name": "Necrotic",
-                "desc": "Leech life (every 2 successes = 1 damage + 1 recover). Steal a tag temporarily.",
+				"name": "Necrotic",
+				"desc": "Leech life (every 2 successes = 1 damage + 1 recover). Steal a tag temporarily.",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 1,
-                "name": "Frenzy",
-                "desc": "Physical actions have edge, but +1 damage received. Exhaust for rage/resistance all damage.",
+				"name": "Frenzy",
+				"desc": "Physical actions have edge, but +1 damage received. Exhaust for rage/resistance all damage.",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 2,
-                "name": "Binding",
-                "desc": "Force+weapon to grapple. Exhaust to restrain a huge or multiple foes w/d20 to maintain.",
+				"name": "Binding",
+				"desc": "Force+weapon to grapple. Exhaust to restrain a huge or multiple foes w/d20 to maintain.",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            },
-            {
+			},
+			{
 				"id": 3,
-                "name": "Ultimate: Blood frenzy",
-                "desc": "10d8 lunge, recover that many tags. Excess becomes Blood Pool (exhaust for d20).",
+				"name": "Ultimate: Blood frenzy",
+				"desc": "10d8 lunge, recover that many tags. Excess becomes Blood Pool (exhaust for d20).",
 				"exhaust": "Trigger Juggernaut and double your movement this turn"
-            }
-        ]
-    }
+			}
+		]
+	}
 ]

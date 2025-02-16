@@ -1,52 +1,52 @@
 [
-    {
-        "id": 0,
-        "name": "Revenge",
-        "desc": "RevengeRevengeRevenge"
-    },
-    {
-        "id": 1,
-        "name": "Mastery",
-        "desc": "MasteryMasteryMastery"
-    },
-    {
-        "id": 2,
-        "name": "Discovery",
-        "desc": "DiscoveryDiscoveryDiscovery"
-    },
-    {
-        "id": 3,
-        "name": "Wealth",
-        "desc": "WealthWealthWealth"
-    },
-    {
-        "id": 4,
-        "name": "Leadership",
-        "desc": "LeadershipLeadershipLeadership"
-    },
-    {
-        "id": 5,
-        "name": "Redemption",
-        "desc": "RedemptionRedemptionRedemption"
-    },
-    {
-        "id": 6,
-        "name": "Protection",
-        "desc": "ProtectionProtectionProtection"
-    },
-    {
-        "id": 7,
-        "name": "Freedom",
-        "desc": "FreedomFreedomFreedom"
-    },
-    {
-        "id": 8,
-        "name": "Connection",
-        "desc": "ConnectionConnectionConnection"
-    },
-    {
-        "id": 9,
-        "name": "Immortality",
-        "desc": "ImmortalityImmortalityImmortality"
-    }
+	{
+		"id": 0,
+		"name": "Revenge",
+		"desc": "RevengeRevengeRevenge"
+	},
+	{
+		"id": 1,
+		"name": "Mastery",
+		"desc": "MasteryMasteryMastery"
+	},
+	{
+		"id": 2,
+		"name": "Discovery",
+		"desc": "DiscoveryDiscoveryDiscovery"
+	},
+	{
+		"id": 3,
+		"name": "Wealth",
+		"desc": "WealthWealthWealth"
+	},
+	{
+		"id": 4,
+		"name": "Leadership",
+		"desc": "LeadershipLeadershipLeadership"
+	},
+	{
+		"id": 5,
+		"name": "Redemption",
+		"desc": "RedemptionRedemptionRedemption"
+	},
+	{
+		"id": 6,
+		"name": "Protection",
+		"desc": "ProtectionProtectionProtection"
+	},
+	{
+		"id": 7,
+		"name": "Freedom",
+		"desc": "FreedomFreedomFreedom"
+	},
+	{
+		"id": 8,
+		"name": "Connection",
+		"desc": "ConnectionConnectionConnection"
+	},
+	{
+		"id": 9,
+		"name": "Immortality",
+		"desc": "ImmortalityImmortalityImmortality"
+	}
 ]
