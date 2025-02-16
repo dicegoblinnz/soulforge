@@ -5,34 +5,42 @@
         "desc": "JuggernautJuggernautJuggernaut",
         "abilities": [
             {
+				"id": 0,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 1,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 2,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 3,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 4,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 5,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 6,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 7,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             }
@@ -44,14 +52,17 @@
         "desc": "BloodboundBloodboundBloodbound",
         "abilities": [
             {
+				"id": 0,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 1,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             },
             {
+				"id": 2,
                 "name": "Fury",
                 "desc": "FuryFuryFury"
             }
