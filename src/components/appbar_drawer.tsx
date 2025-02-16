@@ -13,12 +13,14 @@ import {
 } from "@mui/material";
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
-import {ScrollTop} from "@/components/scroll_to_top";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {ReturnHome} from "@/components/return_home";
 import {PropsWithChildren, useState} from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import dynamic from "next/dynamic";
+
+const DynamicScrollTop = dynamic(() => import('@/components/scroll_top'), {ssr: false});
 
 export function AppbarDrawer({children}: PropsWithChildren) {
   const [open, setOpen] = useState(false);
@@ -79,11 +81,11 @@ export function AppbarDrawer({children}: PropsWithChildren) {
 
       {children}
 
-      <ScrollTop>
+      <DynamicScrollTop>
         <Fab size="medium" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
-      </ScrollTop>
+      </DynamicScrollTop>
     </>
   );
 }

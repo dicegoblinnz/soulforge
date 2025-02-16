@@ -6,13 +6,10 @@ interface Props {
   children?: React.ReactElement<unknown>;
 }
 
-export function ScrollTop(props: Props) {
+export default function ScrollTop(props: Props) {
   const { children } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
-    target: window ,
+    target: window ?? undefined,
     disableHysteresis: true,
     threshold: 100,
   });
@@ -25,6 +22,7 @@ export function ScrollTop(props: Props) {
     if (anchor) {
       anchor.scrollIntoView({
         block: 'center',
+        behavior: 'smooth',
       });
     }
   };
