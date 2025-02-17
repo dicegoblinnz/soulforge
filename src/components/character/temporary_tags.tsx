@@ -1,7 +1,6 @@
 import {
-  Card,
-  CardContent,
-  CardHeader,
+  Box,
+  Typography,
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
@@ -13,27 +12,28 @@ type Props = {
 
 export function TemporaryTags({sx}: Props) {
   return (
-    <Card sx={sx}>
-      <CardHeader
-        title="Temporary tags"
-        sx={{pb: 0}}
-      />
-      <CardContent>
-        <Grid container spacing={2}>
-          <Grid size={12}>
-            <Ability/>
-          </Grid>
+    <Box sx={sx}>
+      <Typography
+        variant="h5"
+        component="h5"
+      >
+        Temporary Tags
+      </Typography>
 
-          <Grid size={12}>
-            <Ability/>
-          </Grid>
-
-          <Grid size={12}>
-            <Ability/>
-          </Grid>
+      <Grid container spacing={2} sx={{mt: 2}}>
+        <Grid size={12}>
+          <Ability/>
         </Grid>
-      </CardContent>
-    </Card>
+
+        <Grid size={12}>
+          <Ability/>
+        </Grid>
+
+        <Grid size={12}>
+          <Ability/>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

@@ -1,7 +1,11 @@
 import {
-  Card,
-  CardContent,
-  CardHeader, FormControl, InputLabel, MenuItem, Select,
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  Typography,
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
@@ -9,7 +13,7 @@ import {Ability} from "@/components/character/ability";
 
 function KeystoneSelect() {
   return (
-    <FormControl size="small" fullWidth sx={{minWidth: 150}}>
+    <FormControl size="small" sx={{minWidth: 150}}>
       <InputLabel>Keystone</InputLabel>
       <Select
         label="Keystone"
@@ -27,28 +31,32 @@ type Props = {
 
 export function Keystone({sx}: Props) {
   return (
-    <Card sx={sx}>
-      <CardHeader
-        title="Keystone"
-        action={<KeystoneSelect/>}
-        sx={{pb: 0}}
-      />
-      <CardContent>
-        <Grid container spacing={2}>
-          <Grid size={6}>
-            <Ability/>
-          </Grid>
+    <Box sx={sx}>
+      <Stack justifyContent="space-between" direction="row">
+        <Typography
+          variant="h5"
+          component="h5"
+        >
+          Keystone
+        </Typography>
 
-          <Grid size={6}>
-            <Ability/>
-          </Grid>
+        <KeystoneSelect/>
+      </Stack>
 
-          <Grid size={12}>
-            <Ability/>
-          </Grid>
+      <Grid container spacing={2} sx={{mt: 2}}>
+        <Grid size={6}>
+          <Ability/>
         </Grid>
-      </CardContent>
-    </Card>
+
+        <Grid size={6}>
+          <Ability/>
+        </Grid>
+
+        <Grid size={12}>
+          <Ability/>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

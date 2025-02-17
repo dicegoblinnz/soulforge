@@ -1,13 +1,13 @@
 import {
+  Box,
   Card,
   CardContent,
-  CardHeader,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   SxProps,
-  TextField
+  TextField, Typography
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 
@@ -17,72 +17,77 @@ type Props = {
 
 export function Lore({sx}: Props) {
   return (
-    <Card sx={sx}>
-      <CardHeader
-        title="Lore"
-        sx={{pb: 0}}
-      />
-      <CardContent>
-        <Grid container spacing={2}>
-          <Grid size={6}>
-            <TextField
-              label="Name"
-              variant="outlined"
-              margin="dense"
-              size="small"
-              fullWidth
-            />
-          </Grid>
+    <Box sx={sx}>
+      <Typography
+        variant="h5"
+        component="h5"
+      >
+        Lore
+      </Typography>
 
-          <Grid size={6}>
-            <TextField
-              label="True name"
-              variant="outlined"
-              margin="dense"
-              size="small"
-              fullWidth
-            />
-          </Grid>
-
-
-          <Grid size={4}>
-            <FormControl size="small" fullWidth>
-              <InputLabel>Aspiration</InputLabel>
-              <Select
-                label="Aspiration"
+      <Card sx={{mt: 2}}>
+        <CardContent>
+          <Grid container spacing={2}>
+            <Grid size={6}>
+              <TextField
+                label="Name"
                 variant="outlined"
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
+                margin="dense"
+                size="small"
+                fullWidth
+              />
+            </Grid>
 
-          <Grid size={4}>
-            <FormControl size="small" fullWidth>
-              <InputLabel>Core Value</InputLabel>
-              <Select
-                label="Core Value"
+            <Grid size={6}>
+              <TextField
+                label="True name"
                 variant="outlined"
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
+                margin="dense"
+                size="small"
+                fullWidth
+              />
+            </Grid>
 
-          <Grid size={4}>
-            <FormControl size="small" fullWidth>
-              <InputLabel>Vice</InputLabel>
-              <Select
-                label="Vice"
-                variant="outlined"
-              >
-                <MenuItem value={10}>Ten</MenuItem>
-              </Select>
-            </FormControl>
+
+            <Grid size={4}>
+              <FormControl size="small" fullWidth>
+                <InputLabel>Aspiration</InputLabel>
+                <Select
+                  label="Aspiration"
+                  variant="outlined"
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid size={4}>
+              <FormControl size="small" fullWidth>
+                <InputLabel>Core Value</InputLabel>
+                <Select
+                  label="Core Value"
+                  variant="outlined"
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid size={4}>
+              <FormControl size="small" fullWidth>
+                <InputLabel>Vice</InputLabel>
+                <Select
+                  label="Vice"
+                  variant="outlined"
+                >
+                  <MenuItem value={10}>Ten</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
           </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }
 

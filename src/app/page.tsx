@@ -9,6 +9,7 @@ import {Keystone} from "@/components/character/keystone";
 import {Kinfolk} from "@/components/character/kinfolk";
 import {TemporaryTags} from "@/components/character/temporary_tags";
 import {Afflictions} from "@/components/character/afflictions";
+import Grid from "@mui/material/Grid2";
 
 
 export default function Home() {
@@ -24,37 +25,32 @@ export default function Home() {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} >
-              <Tab label="Lore" value="1" />
-              <Tab label="Keystone" value="2" />
-              <Tab label="Archetype" value="3" />
-              <Tab label="Kinfolk" value="4" />
-              <Tab label="Temporary Tags" value="5" />
-              <Tab label="Afflictions" value="6" />
+              <Tab label="Core" value="1" />
+              <Tab label="Self" value="2" />
+              <Tab label="Status" value="3" />
             </TabList>
           </Box>
 
           <TabPanel value="1">
             <Lore/>
+            <Keystone sx={{mt: 4}}/>
           </TabPanel>
 
           <TabPanel value="2">
-            <Keystone/>
+            <Archetype/>
+            <Kinfolk sx={{mt: 4}}/>
           </TabPanel>
 
           <TabPanel value="3">
-            <Archetype/>
-          </TabPanel>
+            <Grid container spacing={2}>
+              <Grid size={6}>
+                <TemporaryTags/>
+              </Grid>
 
-          <TabPanel value="4">
-            <Kinfolk/>
-          </TabPanel>
-
-          <TabPanel value="5">
-            <TemporaryTags/>
-          </TabPanel>
-
-          <TabPanel value="6">
-            <Afflictions/>
+              <Grid size={6}>
+                <Afflictions/>
+              </Grid>
+            </Grid>
           </TabPanel>
         </TabContext>
       </main>

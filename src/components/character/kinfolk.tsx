@@ -1,7 +1,7 @@
 import {
-  Card,
-  CardContent,
-  CardHeader,
+  Box,
+  Stack,
+  Typography,
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
@@ -14,28 +14,32 @@ type Props = {
 
 export function Kinfolk({sx}: Props) {
   return (
-    <Card sx={sx}>
-      <CardHeader
-        title="Kinfolk"
-        action={<KinfolkModal/>}
-        sx={{pb: 0}}
-      />
-      <CardContent>
-        <Grid container spacing={2}>
-          <Grid size={4}>
-            <Ability/>
-          </Grid>
+    <Box sx={sx}>
+      <Stack justifyContent="space-between" direction="row">
+        <Typography
+          variant="h5"
+          component="h5"
+        >
+          Kinfolk
+        </Typography>
 
-          <Grid size={4}>
-            <Ability/>
-          </Grid>
+        <KinfolkModal/>
+      </Stack>
 
-          <Grid size={4}>
-            <Ability/>
-          </Grid>
+      <Grid container spacing={2} sx={{mt: 2}}>
+        <Grid size={4}>
+          <Ability/>
         </Grid>
-      </CardContent>
-    </Card>
+
+        <Grid size={4}>
+          <Ability/>
+        </Grid>
+
+        <Grid size={4}>
+          <Ability/>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
