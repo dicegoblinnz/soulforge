@@ -5,17 +5,17 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/ability";
+import {Ability} from "@/components/character/ability";
 
 type Props = {
   sx?: SxProps;
 };
 
-export function TemporaryTags({sx}: Props) {
+export function Afflictions({sx}: Props) {
   return (
     <Card sx={sx}>
       <CardHeader
-        title="Temporary tags"
+        title="Afflictions"
         sx={{pb: 0}}
       />
       <CardContent>

@@ -1,10 +1,10 @@
-import {Lore} from "@/components/lore";
-import {Keystone} from "@/components/keystone";
-import {Archetype} from "@/components/archetype";
-import {Kinfolk} from "@/components/kinfolk";
+import {Lore} from "@/components/character/lore";
+import {Keystone} from "@/components/character/keystone";
+import {Archetype} from "@/components/character/archetype";
+import {Kinfolk} from "@/components/character/kinfolk";
 import Grid from "@mui/material/Grid2";
-import {TemporaryTags} from "@/components/temporary_tags";
-import {Afflictions} from "@/components/afflictions";
+import {TemporaryTags} from "@/components/character/temporary_tags";
+import {Afflictions} from "@/components/character/afflictions";
 
 export default function Page() {
   return (

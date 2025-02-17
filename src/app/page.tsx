@@ -3,12 +3,12 @@
 import {TabContext, TabList, TabPanel} from "@mui/lab";
 import {Box, Tab} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
-import {Lore} from "@/components/lore";
-import {Archetype} from "@/components/archetype";
-import {Keystone} from "@/components/keystone";
-import {Kinfolk} from "@/components/kinfolk";
-import {TemporaryTags} from "@/components/temporary_tags";
-import {Afflictions} from "@/components/afflictions";
+import {Lore} from "@/components/character/lore";
+import {Archetype} from "@/components/character/archetype";
+import {Keystone} from "@/components/character/keystone";
+import {Kinfolk} from "@/components/character/kinfolk";
+import {TemporaryTags} from "@/components/character/temporary_tags";
+import {Afflictions} from "@/components/character/afflictions";
 
 
 export default function Home() {

@@ -5,8 +5,8 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/ability";
-import {ArchetypeModal} from "@/components/archetype_modal";
+import {Ability} from "@/components/character/ability";
+import {ArchetypeModal} from "@/components/character/archetype_modal";
 
 type Props = {
   sx?: SxProps;

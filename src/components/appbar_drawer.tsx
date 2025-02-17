@@ -18,6 +18,7 @@ import {ReturnHome} from "@/components/return_home";
 import {PropsWithChildren, useState} from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import TableViewIcon from '@mui/icons-material/TableView';
 import dynamic from "next/dynamic";
 
 const DynamicScrollTop = dynamic(() => import('@/components/scroll_top'), {ssr: false});
@@ -73,6 +74,15 @@ export function AppbarDrawer({children}: PropsWithChildren) {
                   <FullscreenIcon />
                 </ListItemIcon>
                 <ListItemText primary="Full" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton component={Link} href="/data">
+                <ListItemIcon>
+                  <TableViewIcon />
+                </ListItemIcon>
+                <ListItemText primary="Data" />
               </ListItemButton>
             </ListItem>
           </List>

@@ -5,7 +5,7 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/ability";
+import {Ability} from "@/components/character/ability";
 
 function KeystoneSelect() {
   return (
