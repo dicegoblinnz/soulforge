@@ -4,12 +4,14 @@ import {
   Box,
   Card,
   CardContent,
-  CardHeader,
-  SxProps, useTheme,
+  Typography,
+  useTheme,
+  SxProps
 } from "@mui/material";
 import {DataGrid, GridColDef, gridClasses} from "@mui/x-data-grid";
 import { alpha } from '@mui/material/styles';
 import {tags} from "@/data/v1/tags";
+import {lighten, darken} from "@mui/system/colorManipulator/colorManipulator";
 
 
 const columns: GridColDef<(typeof tags)[number]>[] = [
@@ -52,57 +54,62 @@ type Props = {
 
 export function TagDataView({sx}: Props) {
   const theme = useTheme();
+  const darkMode = theme.palette.mode === 'dark';
 
   return (
-    <Card sx={{...sx}}>
-      <CardHeader
-        title="Tag Data"
-        slotProps={{title: {typography: "h6"}}}
-        sx={{pb: 0}}
-      />
-      <CardContent>
-        <Box
-          display="flex"
-          flexDirection="column"
-          sx={{minHeight: "420px", maxHeight: "80vh"}}
-        >
-          <DataGrid
-            rows={tags}
-            columns={columns}
-            rowHeight={38}
-            columnHeaderHeight={42}
-            getRowClassName={params => params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd' }
-            initialState={{
-              pagination: {
-                paginationModel: {
-                  pageSize: 12,
+    <Box sx={sx}>
+      <Typography
+        variant="h5"
+        component="h5"
+      >
+        Tag data view
+      </Typography>
+
+      <Card sx={{mt: 2}}>
+        <CardContent>
+          <Box
+            display="flex"
+            flexDirection="column"
+            sx={{minHeight: "420px", maxHeight: "80vh"}}
+          >
+            <DataGrid
+              rows={tags}
+              columns={columns}
+              rowHeight={38}
+              columnHeaderHeight={42}
+              getRowClassName={params => params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd' }
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 12,
+                  },
                 },
-              },
-            }}
-            pageSizeOptions={[
-              {value: 12, label: "12"},
-              {value: 24, label: "24"},
-              {value: 48, label: "48"}
-            ]}
-            checkboxSelection
-            disableRowSelectionOnClick
-            sx={{
-              ['& .MuiDataGrid-topContainer']: {
-                backgroundColor: alpha(theme.palette.secondary.main, 0.1),
-              },
-              ['& .MuiDataGrid-row:hover']: {
-                '&:hover': {
-                  backgroundColor: alpha(theme.palette.primary.main, 0.2),
+              }}
+              pageSizeOptions={[
+                {value: 12, label: "12"},
+                {value: 24, label: "24"},
+                {value: 48, label: "48"}
+              ]}
+              checkboxSelection
+              disableRowSelectionOnClick
+              sx={{
+                ['& .MuiDataGrid-topContainer']: {
+                  backgroundColor: alpha(theme.palette.secondary.main, 0.1),
                 },
-              },
-              [`& .${gridClasses.row}.even`]: {
-                backgroundColor: theme.palette.grey[200],
-              },
-            }}
-          />
-        </Box>
-      </CardContent>
-    </Card>
+                ['& .MuiDataGrid-row:hover']: {
+                  '&:hover': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.2),
+                  },
+                },
+                [`& .${gridClasses.row}.even`]: {
+                  backgroundColor: darkMode ? lighten(theme.palette.background.default, 0.1) : darken(theme.palette.background.default, 0.1),
+                },
+              }}
+            />
+          </Box>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }
 

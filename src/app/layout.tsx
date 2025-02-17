@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import {CssBaseline} from "@mui/material";
 import {AppbarDrawer} from "@/components/appbar_drawer";
+import {SettingsProvider} from "@/context/settings/settings-provider";
+import {ThemeProvider} from "@/context/theme-provider";
+import {blue, purple} from "@mui/material/colors";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "SoulForge",
-  description: "SoulForge, an up and coming TTRPG!"
+  description: "An up and coming TTRPG!"
 };
 
 export default function RootLayout({
@@ -22,15 +24,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <CssBaseline />
-      <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin: 0}}>
-        <AppbarDrawer/>
+      <SettingsProvider
+        defaultSettings={{
+          themeMode: 'light',
+          themePrimary: blue[500],
+          themeSecondary: purple[500]
+        }}
+      >
+        <ThemeProvider>
+          <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin: 0}}>
+            <AppbarDrawer/>
 
-        {children}
-      </body>
+            {children}
+          </body>
+        </ThemeProvider>
+      </SettingsProvider>
     </html>
   );
 }

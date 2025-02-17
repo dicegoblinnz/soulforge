@@ -10,6 +10,7 @@ import {Kinfolk} from "@/components/character/kinfolk";
 import {TemporaryTags} from "@/components/character/temporary_tags";
 import {Afflictions} from "@/components/character/afflictions";
 import Grid from "@mui/material/Grid2";
+import {Resources} from "@/components/character/resources";
 
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
 
           <TabPanel value="1">
             <Lore/>
+            <Resources sx={{mt: 4}}/>
             <Keystone sx={{mt: 4}}/>
           </TabPanel>
 
