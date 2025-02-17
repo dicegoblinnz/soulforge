@@ -8,7 +8,7 @@ import {
   SxProps, useTheme,
 } from "@mui/material";
 import {DataGrid, GridColDef, gridClasses} from "@mui/x-data-grid";
-import { alpha, styled } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
 import {tags} from "@/data/v1/tags";
 
 
