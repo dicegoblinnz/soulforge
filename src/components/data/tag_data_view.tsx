@@ -5,7 +5,7 @@ import {
   Card,
   CardContent,
   CardHeader,
-  SxProps,
+  SxProps, useTheme,
 } from "@mui/material";
 import {DataGrid, GridColDef, gridClasses} from "@mui/x-data-grid";
 import { alpha, styled } from '@mui/material/styles';
@@ -45,26 +45,14 @@ const columns: GridColDef<(typeof tags)[number]>[] = [
   },
 ];
 
-const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
-  ['& .MuiDataGrid-topContainer']: {
-    backgroundColor: alpha(theme.palette.secondary.main, 0.2),
-  },
-  ['& .MuiDataGrid-row:hover']: {
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.primary.main, 0.2),
-    },
-  },
-  [`& .${gridClasses.row}.even`]: {
-    backgroundColor: theme.palette.grey[200],
-  },
-}));
-
 
 type Props = {
   sx?: SxProps;
 };
 
 export function TagDataView({sx}: Props) {
+  const theme = useTheme();
+
   return (
     <Card sx={{...sx}}>
       <CardHeader
@@ -73,8 +61,12 @@ export function TagDataView({sx}: Props) {
         sx={{pb: 0}}
       />
       <CardContent>
-        <Box display="flex" flexDirection="column" sx={{minHeight: "420px", maxHeight: "80vh"}}>
-          <StyledDataGrid
+        <Box
+          display="flex"
+          flexDirection="column"
+          sx={{minHeight: "420px", maxHeight: "80vh"}}
+        >
+          <DataGrid
             rows={tags}
             columns={columns}
             rowHeight={38}
@@ -94,7 +86,19 @@ export function TagDataView({sx}: Props) {
             ]}
             checkboxSelection
             disableRowSelectionOnClick
-
+            sx={{
+              ['& .MuiDataGrid-topContainer']: {
+                backgroundColor: alpha(theme.palette.secondary.main, 0.1),
+              },
+              ['& .MuiDataGrid-row:hover']: {
+                '&:hover': {
+                  backgroundColor: alpha(theme.palette.primary.main, 0.2),
+                },
+              },
+              [`& .${gridClasses.row}.even`]: {
+                backgroundColor: theme.palette.grey[200],
+              },
+            }}
           />
         </Box>
       </CardContent>
