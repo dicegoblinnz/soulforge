@@ -58,7 +58,7 @@ export function KinfolkModal() {
 
   const kinfolkTags = useMemo(() => (
     tags.filter(t => t.categories.indexOf(ETagCategories.KINFOLK) >= 0)
-  ), [tags]);
+  ), []);
 
   const [rowSelectionModel, setRowSelectionModel] = useState<GridRowSelectionModel>(
     kinfolkTags.map((kt, i) => {
