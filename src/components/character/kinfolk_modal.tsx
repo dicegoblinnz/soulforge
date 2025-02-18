@@ -7,8 +7,7 @@ import {
   gridClasses,
   GridColDef,
   GridRowSelectionModel,
-  GridToolbar,
-  useGridApiRef
+  GridToolbar
 } from "@mui/x-data-grid";
 import {tags} from "@/data/v1/tags";
 import {alpha} from "@mui/material/styles";
@@ -75,18 +74,17 @@ export function KinfolkModal() {
     characterData.updateAllKinfolkAbilities(ids);
   };
 
+  const isRowSelectable = (rowId: number | string) => {
+    const id = typeof rowId === 'string' ? parseInt(rowId, 10) : rowId;
+
+    return rowSelectionModel.length < 3 || rowSelectionModel.indexOf(id) >= 0;
+  }
+
   const trySetRowSelection = (value: GridRowSelectionModel) => {
     if (rowSelectionModel.length < 3 || rowSelectionModel.filter(r => value.indexOf(r) >= 0).length < 3) {
       setSelectedAbilities(value.map(v => typeof v === 'string' ? parseInt(v, 10) : v));
     }
   };
-
-  const gridRef = useGridApiRef();
-  if (gridRef.current !== null) {
-    gridRef.current.isRowSelectable = (id) => {
-      return rowSelectionModel.length < 3 || rowSelectionModel.indexOf(id) >= 0
-    };
-  }
 
   return (
     <div>
@@ -132,8 +130,8 @@ export function KinfolkModal() {
                 checkboxSelection
                 disableRowSelectionOnClick
                 rowSelectionModel={rowSelectionModel}
-                onRowSelectionModelChange={trySetRowSelection}
-                apiRef={gridRef}
+                onRowSelectionModelChange={(p) => trySetRowSelection(p)}
+                isRowSelectable={p => isRowSelectable(p.id)}
                 slots={{
                   toolbar: GridToolbar,
                 }}

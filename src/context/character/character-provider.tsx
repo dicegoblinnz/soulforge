@@ -112,6 +112,60 @@ export function CharacterProvider({ children }: Props) {
     getSelectedCharacterIndex
   ]);
 
+  const updateAspirationNote = useCallback((value: string) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].lore.aspiration.note = value;
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+  const updateCoreValueNote = useCallback((value: string) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].lore.core_value.note = value;
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+  const updateViceNote = useCallback((value: string) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].lore.vice.note = value;
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
   const updateAllKinfolkAbilities = useCallback((ids: number[]) => {
     const index = getSelectedCharacterIndex();
 
@@ -160,6 +214,9 @@ export function CharacterProvider({ children }: Props) {
       updateAspiration: updateAspiration,
       updateCoreValue: updateCoreValue,
       updateVice: updateVice,
+      updateAspirationNote: updateAspirationNote,
+      updateCoreValueNote: updateCoreValueNote,
+      updateViceNote: updateViceNote,
       updateAllKinfolkAbilities: updateAllKinfolkAbilities
     };
   }, [
@@ -171,6 +228,9 @@ export function CharacterProvider({ children }: Props) {
     updateAspiration,
     updateCoreValue,
     updateVice,
+    updateAspirationNote,
+    updateCoreValueNote,
+    updateViceNote,
     updateAllKinfolkAbilities
   ]);
 

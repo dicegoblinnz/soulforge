@@ -3,7 +3,7 @@
 import {
   AppBar,
   Box,
-  Button, CircularProgress,
+  CircularProgress,
   Divider,
   Drawer,
   Fab,
@@ -60,13 +60,6 @@ export function AppbarDrawer({sx, children}: Props) {
           <ReturnHome/>
 
           <div style={{flexGrow: 1}}/>
-
-          <Button color="inherit">
-            Download
-          </Button>
-          <Button color="inherit">
-            Load
-          </Button>
 
           <IconButton onClick={() => settings.onUpdate('themeMode', !darkMode ? 'dark': 'light')} color="inherit">
             {theme.palette.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}

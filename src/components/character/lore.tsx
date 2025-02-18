@@ -145,6 +145,52 @@ export function Lore({sx}: Props) {
                 </Select>
               </FormControl>
             </Grid>
+
+
+            <Grid size={4}>
+              <TextField
+                label="Aspiration notes"
+                variant="outlined"
+                margin="dense"
+                size="small"
+                multiline
+                minRows={3}
+                maxRows={6}
+                fullWidth
+                value={character.character?.lore.aspiration.note}
+                onChange={e => character.updateAspirationNote(e.target.value)}
+              />
+            </Grid>
+
+            <Grid size={4}>
+              <TextField
+                label="Core Value notes"
+                variant="outlined"
+                margin="dense"
+                size="small"
+                multiline
+                minRows={3}
+                maxRows={6}
+                fullWidth
+                value={character.character?.lore.core_value.note}
+                onChange={e => character.updateCoreValueNote(e.target.value)}
+              />
+            </Grid>
+
+            <Grid size={4}>
+              <TextField
+                label="Vice notes"
+                variant="outlined"
+                margin="dense"
+                size="small"
+                multiline
+                minRows={3}
+                maxRows={6}
+                fullWidth
+                value={character.character?.lore.vice.note}
+                onChange={e => character.updateViceNote(e.target.value)}
+              />
+            </Grid>
           </Grid>
         </CardContent>
       </Card>

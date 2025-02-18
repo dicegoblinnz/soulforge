@@ -7,8 +7,8 @@ import Image from "next/image";
 const StyledBox = styled(Box)`
   background: linear-gradient(130deg, ${green[400]}, ${blue[300]}, ${green[400]});
   background-size: 200% 200%;
-  animation-name: pulsing;
-  animation-duration: 2s;
+  animation: pulsing 12s;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 
   @keyframes pulsing {

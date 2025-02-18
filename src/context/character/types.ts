@@ -18,6 +18,10 @@ export type CharacterContextProps = {
   updateCoreValue: (id: number) => void;
   updateVice: (id: number) => void;
 
+  updateAspirationNote: (value: string) => void;
+  updateCoreValueNote: (value: string) => void;
+  updateViceNote: (value: string) => void;
+
   // // Keystone
   // updateKeystone: (id: number) => void;
   // updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;

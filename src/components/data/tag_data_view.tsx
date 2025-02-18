@@ -8,7 +8,7 @@ import {
   useTheme,
   SxProps
 } from "@mui/material";
-import {DataGrid, GridColDef, gridClasses} from "@mui/x-data-grid";
+import {DataGrid, GridColDef, gridClasses, GridToolbar} from "@mui/x-data-grid";
 import { alpha } from '@mui/material/styles';
 import {tags} from "@/data/v1/tags";
 import {lighten, darken} from "@mui/system/colorManipulator/colorManipulator";
@@ -92,6 +92,14 @@ export function TagDataView({sx}: Props) {
               ]}
               checkboxSelection
               disableRowSelectionOnClick
+              slots={{
+                toolbar: GridToolbar,
+              }}
+              slotProps={{
+                toolbar: {
+                  showQuickFilter: true,
+                },
+              }}
               sx={{
                 ['& .MuiDataGrid-topContainer']: {
                   backgroundColor: alpha(theme.palette.secondary.main, 0.1),
