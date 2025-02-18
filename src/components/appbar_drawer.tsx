@@ -3,7 +3,7 @@
 import {
   AppBar,
   Box,
-  Button,
+  Button, CircularProgress,
   Divider,
   Drawer,
   Fab,
@@ -76,8 +76,8 @@ export function AppbarDrawer({sx, children}: Props) {
       <Toolbar id="back-to-top-anchor" sx={sx}/>
 
       <Drawer open={open} onClose={() => setOpen(false)}>
-        <Box width={250} onClick={() => setOpen(false)}>
-          <List sx={{p: 0}}>
+        <Box width={250} height="100%" onClick={() => setOpen(false)}>
+          <List sx={{p: 0, display: "flex", flexDirection: "column", height: "100%"}}>
             <Box height={64} display="flex" alignItems="center" justifyContent="center">
               <Typography variant="h6" sx={{textAlign: "center"}}>SoulForge</Typography>
             </Box>
@@ -107,6 +107,17 @@ export function AppbarDrawer({sx, children}: Props) {
                   <TableViewIcon />
                 </ListItemIcon>
                 <ListItemText primary="Data" />
+              </ListItemButton>
+            </ListItem>
+
+            <Divider sx={{mt: "auto"}}/>
+
+            <ListItem disablePadding>
+              <ListItemButton component={Link} href="/loading">
+                <ListItemIcon>
+                  <CircularProgress size="24px" thickness={4}/>
+                </ListItemIcon>
+                <ListItemText primary="Loading page" />
               </ListItemButton>
             </ListItem>
           </List>
