@@ -2,14 +2,14 @@
 
 import {
   Box,
-  Card,
   CardContent,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
-  SxProps,
-  TextField, Typography
+  TextField,
+  Typography,
+  SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {useCharacterContext} from "@/context/character/character-context";
@@ -17,6 +17,7 @@ import {aspirations} from "@/data/v1/aspirations";
 import {useCallback} from "react";
 import {coreValues} from "@/data/v1/core_values";
 import {vices} from "@/data/v1/vices";
+import {SoulforgeCard} from "@/components/soulforge-card";
 
 type Props = {
   sx?: SxProps;
@@ -67,7 +68,7 @@ export function Lore({sx}: Props) {
         Lore
       </Typography>
 
-      <Card sx={{mt: 2}}>
+      <SoulforgeCard sx={{mt: 2}}>
         <CardContent>
           <Grid container spacing={2}>
             <Grid size={6}>
@@ -193,7 +194,7 @@ export function Lore({sx}: Props) {
             </Grid>
           </Grid>
         </CardContent>
-      </Card>
+      </SoulforgeCard>
     </Box>
   );
 }

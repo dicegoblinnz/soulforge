@@ -3,13 +3,15 @@
 import {
   Box,
   Typography,
-  SxProps, Card, CardContent
+  CardContent,
+  SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import {Resource} from "@/components/character/resource/resource";
 import {useCharacterContext} from "@/context/character/character-context";
+import {SoulforgeCard} from "@/components/soulforge-card";
 
 type Props = {
   sx?: SxProps;
@@ -30,7 +32,7 @@ export function Resources({sx}: Props) {
         Resources
       </Typography>
 
-      <Card sx={{mt: 2}}>
+      <SoulforgeCard sx={{mt: 2}}>
         <CardContent>
           <Grid container spacing={2} sx={{mt: 2}}>
             <Grid size={6}>
@@ -52,7 +54,7 @@ export function Resources({sx}: Props) {
             </Grid>
           </Grid>
         </CardContent>
-      </Card>
+      </SoulforgeCard>
     </Box>
   );
 }

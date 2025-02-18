@@ -4,12 +4,14 @@ import {
   Box,
   Stack,
   Typography,
-  SxProps, CardContent, Card
+  CardContent,
+  SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {Ability} from "@/components/character/ability";
 import {KinfolkModal} from "@/components/character/kinfolk_modal";
 import {useCharacterContext} from "@/context/character/character-context";
+import {SoulforgeCard} from "@/components/soulforge-card";
 
 type Props = {
   sx?: SxProps;
@@ -30,11 +32,11 @@ export function Kinfolk({sx}: Props) {
     )
     : (
       <Grid size={12}>
-        <Card>
+        <SoulforgeCard>
           <CardContent sx={{display: "flex", justifyContent: "center"}}>
             <Typography variant="h6" fontStyle="italic">No abilities found</Typography>
           </CardContent>
-        </Card>
+        </SoulforgeCard>
       </Grid>
     );
 

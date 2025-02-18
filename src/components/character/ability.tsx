@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  Card,
   CardContent,
   CardHeader,
   FormControlLabel,
@@ -11,6 +10,7 @@ import {
 } from "@mui/material";
 import {CharacterAbility, Tag} from "@/data/types";
 import {tags} from "@/data/v1/tags";
+import {SoulforgeCard} from "@/components/soulforge-card";
 
 function AbilityExhaust() {
   return(
@@ -38,7 +38,7 @@ export function Ability({ability, exhaustable, sx}: Props) {
     ? <AbilityExhaust/> : null;
 
   return (
-    <Card sx={sx}>
+    <SoulforgeCard sx={sx}>
       <CardHeader
         title={fullAbility.name}
         slotProps={{title: {typography: "h6"}}}
@@ -50,7 +50,7 @@ export function Ability({ability, exhaustable, sx}: Props) {
           {fullAbility.description}
         </Typography>
       </CardContent>
-    </Card>
+    </SoulforgeCard>
   );
 }
 

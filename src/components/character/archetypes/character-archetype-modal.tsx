@@ -36,7 +36,7 @@ export function CharacterArchetypeModal() {
             sx={{pb: 0}}
           />
           <CardContent>
-            <Box sx={{maxHeight: "60vh", overflowY: 'auto'}}>
+            <Box sx={{maxHeight: "60vh", overflowY: 'auto', px: 1}}>
               {archetypes.map((a, i) => (
                 <ArchetypeCard key={i} archetype={a} onSelect={handleClose} sx={{mt: 4}}/>
               ))}
