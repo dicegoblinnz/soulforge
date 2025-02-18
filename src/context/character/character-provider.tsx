@@ -5,6 +5,7 @@ import {CharacterContext} from "@/context/character/character-context";
 import {Character} from "@/data/types";
 import {useLocalStorage} from "usehooks-ts";
 import {DEFAULT_CHARACTER, DEFAULT_CHARACTER_ABILITY} from "@/data/defaults";
+import {archetypes} from "@/data/v1/archetypes";
 
 
 const CHARACTER_STORAGE_KEY = 'characters';
@@ -199,6 +200,38 @@ export function CharacterProvider({ children }: Props) {
     getSelectedCharacterIndex
   ]);
 
+
+  const updateArchetype = useCallback((id: number) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].archetype.id = id;
+
+    const archetype = archetypes.find(a => a.id === id);
+    if (archetype === undefined || archetype === null) {
+      console.error(`failed to find archetype with id ${id}`);
+      return;
+    }
+
+    characters[index].archetype.abilities = archetype.abilities.map(a => ({
+      id: a.id,
+      unlocked: true,
+      exhausted: false,
+    }));
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+
   const memo = useMemo(() => {
     const index = getSelectedCharacterIndex();
     const character = index < 0 ? null : characters[index];
@@ -217,6 +250,7 @@ export function CharacterProvider({ children }: Props) {
       updateAspirationNote: updateAspirationNote,
       updateCoreValueNote: updateCoreValueNote,
       updateViceNote: updateViceNote,
+      updateArchetype: updateArchetype,
       updateAllKinfolkAbilities: updateAllKinfolkAbilities
     };
   }, [
@@ -231,6 +265,7 @@ export function CharacterProvider({ children }: Props) {
     updateAspirationNote,
     updateCoreValueNote,
     updateViceNote,
+    updateArchetype,
     updateAllKinfolkAbilities
   ]);
 

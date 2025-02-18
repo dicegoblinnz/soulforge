@@ -93,7 +93,7 @@ export type Kinfolk = {
 export type Archetype = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
   abilities: TagReference[];
 };
 

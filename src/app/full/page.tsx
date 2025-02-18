@@ -1,6 +1,6 @@
 import {Lore} from "@/components/character/lore";
 import {Keystone} from "@/components/character/keystone";
-import {Archetype} from "@/components/character/archetype";
+import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
 import {Kinfolk} from "@/components/character/kinfolk";
 import Grid from "@mui/material/Grid2";
 import {TemporaryTags} from "@/components/character/temporary_tags";
@@ -14,7 +14,7 @@ export default function Page() {
         <Lore sx={{mt: 2}}/>
         <Resources sx={{mt: 4}}/>
         <Keystone sx={{mt: 2}}/>
-        <Archetype sx={{mt: 2}}/>
+        <CharacterArchetype sx={{mt: 2}}/>
         <Kinfolk sx={{mt: 2}}/>
 
         <Grid container spacing={2} sx={{mt: 2, mb: 8}}>

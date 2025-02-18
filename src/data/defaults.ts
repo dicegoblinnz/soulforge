@@ -1,4 +1,4 @@
-import {Character, CharacterAbility} from "@/data/types";
+import {Archetype, Character, CharacterAbility, CharacterArchetype} from "@/data/types";
 
 export const DEFAULT_CHARACTER: Character = {
   afflictions: [],
@@ -46,4 +46,16 @@ export const DEFAULT_CHARACTER_ABILITY: CharacterAbility = {
   id: -1,
   exhausted: false,
   unlocked: true
+};
+
+export const DEFAULT_ARCHETYPE: Archetype = {
+  id: -1,
+  name: "DEFAULT",
+  abilities: []
+};
+
+export const DEFAULT_CHARACTER_ARCHETYPE: CharacterArchetype = {
+  id: -1,
+  abilities: [],
+  note: ""
 };

@@ -22,20 +22,20 @@ export type CharacterContextProps = {
   updateCoreValueNote: (value: string) => void;
   updateViceNote: (value: string) => void;
 
-  // // Keystone
+  // Keystone
   // updateKeystone: (id: number) => void;
   // updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
-  //
-  // // Archetype
-  // updateArchetype: (id: number) => void;
+
+  // Archetype
+  updateArchetype: (id: number) => void;
   // updateArchetypeAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
-  //
-  // // Kinfolk
+
+  // Kinfolk
   // updateKinfolk: (id: number) => void;
   // updateKinfolkAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
   updateAllKinfolkAbilities: (ids: number[]) => void;
 
-  // // Traits
+  // Traits
   // updateTrait: (oldId: number, newId: number) => void;
   // updateTraitAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 } & CharacterValueProps;

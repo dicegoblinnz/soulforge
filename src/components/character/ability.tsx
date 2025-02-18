@@ -9,7 +9,7 @@ import {
   SxProps,
   Typography
 } from "@mui/material";
-import {CharacterAbility} from "@/data/types";
+import {CharacterAbility, Tag} from "@/data/types";
 import {tags} from "@/data/v1/tags";
 
 function AbilityExhaust() {
@@ -23,22 +23,26 @@ function AbilityExhaust() {
 }
 
 type Props = {
-  ability: CharacterAbility;
+  ability: CharacterAbility | Tag;
+  exhaustable?: boolean;
   sx?: SxProps;
 };
 
-export function Ability({ability, sx}: Props) {
+export function Ability({ability, exhaustable, sx}: Props) {
   const fullAbility = tags.find(v => v.id === ability.id);
   if (fullAbility === undefined || fullAbility === null) {
     return null;
   }
+
+  const abilityAction = exhaustable || (exhaustable === undefined || exhaustable == null)
+    ? <AbilityExhaust/> : null;
 
   return (
     <Card sx={sx}>
       <CardHeader
         title={fullAbility.name}
         slotProps={{title: {typography: "h6"}}}
-        action={<AbilityExhaust/>}
+        action={abilityAction}
         sx={{pb: 0}}
       />
       <CardContent>

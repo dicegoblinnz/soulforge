@@ -48,15 +48,15 @@ export function Keystone({sx}: Props) {
 
       <Grid container spacing={2} sx={{mt: 2}}>
         <Grid size={6}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <Ability ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
         <Grid size={6}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <Ability ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <Ability ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
       </Grid>
     </Box>
