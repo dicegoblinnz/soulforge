@@ -24,9 +24,9 @@ const style = {
 
 const columns: GridColDef<(typeof tags)[number]>[] = [
   {
-    field: 'id',
-    headerName: 'ID',
-    width: 80,
+    field: 'categories',
+    headerName: 'Categories',
+    width: 150,
   },
   {
     field: 'name',
@@ -36,12 +36,7 @@ const columns: GridColDef<(typeof tags)[number]>[] = [
   {
     field: 'description',
     headerName: 'Description',
-    width: 600,
-  },
-  {
-    field: 'categories',
-    headerName: 'Categories',
-    width: 150,
+    width: 800,
   },
 ];
 
