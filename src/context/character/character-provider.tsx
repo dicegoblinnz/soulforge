@@ -23,6 +23,7 @@ export function CharacterProvider({ children }: Props) {
     return characters.findIndex(c => c.id === selectedCharacter);
   }, [characters, selectedCharacter]);
 
+  // Lore
   const updateName = useCallback((value: string) => {
     const index = getSelectedCharacterIndex();
 
@@ -167,6 +168,62 @@ export function CharacterProvider({ children }: Props) {
     getSelectedCharacterIndex
   ]);
 
+
+  // Resources
+  const clampResource = (value: number, bounds?: {min?: number, max?: number}): number => {
+    let clamped = value;
+
+    const min = bounds?.min;
+    if (min !== undefined && min !== null) {
+      clamped = Math.max(clamped, min);
+    }
+
+    const max = bounds?.max;
+    if (max !== undefined && max !== null) {
+      clamped = Math.min(clamped, max);
+    }
+
+    return clamped;
+  };
+
+  const updateFate = useCallback((value: number) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].resources.fate.value = clampResource(value, characters[index].resources.fate.bounds);
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+  const updateDowntime = useCallback((value: number) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].resources.downtime.value = clampResource(value, characters[index].resources.downtime.bounds);
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+
+  // Kinfolk
   const updateAllKinfolkAbilities = useCallback((ids: number[]) => {
     const index = getSelectedCharacterIndex();
 
@@ -250,6 +307,8 @@ export function CharacterProvider({ children }: Props) {
       updateAspirationNote: updateAspirationNote,
       updateCoreValueNote: updateCoreValueNote,
       updateViceNote: updateViceNote,
+      updateFate: updateFate,
+      updateDowntime: updateDowntime,
       updateArchetype: updateArchetype,
       updateAllKinfolkAbilities: updateAllKinfolkAbilities
     };
@@ -266,6 +325,8 @@ export function CharacterProvider({ children }: Props) {
     updateCoreValueNote,
     updateViceNote,
     updateArchetype,
+    updateFate,
+    updateDowntime,
     updateAllKinfolkAbilities
   ]);
 

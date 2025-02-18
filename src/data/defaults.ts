@@ -35,8 +35,21 @@ export const DEFAULT_CHARACTER: Character = {
     }
   },
   resources: {
-    fate: 0,
-    downtime: 0
+    fate: {
+      name: "Fate",
+      value: 0,
+      bounds: {
+        min: 0
+      }
+    },
+    downtime: {
+      name: "Downtime",
+      value: 0,
+      bounds: {
+        min: 0
+      }
+    },
+    other: []
   },
   temporary_tags: [],
   traits: []

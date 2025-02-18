@@ -105,6 +105,16 @@ export type Trait = {
   ability: TagReference;
 };
 
+export type Resource = {
+  name: string;
+  value: number;
+  description?: string;
+  bounds?: {
+    min?: number;
+    max?: number;
+  }
+};
+
 export type CharacterLore = {
   name: string;
   true_name: string;
@@ -153,8 +163,9 @@ export type CharacterTrait = {
 };
 
 export type CharacterResources = {
-  fate: number;
-  downtime: number;
+  fate: Resource;
+  downtime: Resource;
+  other: Resource[];
 };
 
 export type Character = {

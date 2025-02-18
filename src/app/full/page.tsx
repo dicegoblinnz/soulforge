@@ -5,7 +5,7 @@ import {Kinfolk} from "@/components/character/kinfolk";
 import Grid from "@mui/material/Grid2";
 import {TemporaryTags} from "@/components/character/temporary_tags";
 import {Afflictions} from "@/components/character/afflictions";
-import {Resources} from "@/components/character/resources";
+import {Resources} from "@/components/character/resource/resources";
 
 export default function Page() {
   return (
