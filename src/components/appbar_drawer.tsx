@@ -12,7 +12,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
+  ListItemText, SxProps,
   Toolbar,
   Typography,
   useTheme
@@ -25,7 +25,7 @@ import {PropsWithChildren, useState} from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import TableViewIcon from '@mui/icons-material/TableView';
-import Brightness5Icon from '@mui/icons-material/Brightness5';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import dynamic from "next/dynamic";
 import {useSettingsContext} from "@/context/settings/settings-context";
@@ -33,9 +33,10 @@ import {useSettingsContext} from "@/context/settings/settings-context";
 const DynamicScrollTop = dynamic(() => import('@/components/scroll_top'), {ssr: false});
 
 type Props = {
+  sx?: SxProps;
 } & PropsWithChildren;
 
-export function AppbarDrawer({children}: Props) {
+export function AppbarDrawer({sx, children}: Props) {
   const [open, setOpen] = useState(false);
   const settings = useSettingsContext();
   const theme = useTheme();
@@ -43,7 +44,7 @@ export function AppbarDrawer({children}: Props) {
 
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={sx}>
         <Toolbar>
           <IconButton
             size="large"
@@ -60,15 +61,19 @@ export function AppbarDrawer({children}: Props) {
 
           <div style={{flexGrow: 1}}/>
 
-          <Button color="inherit">Download</Button>
-          <Button color="inherit">Load</Button>
+          <Button color="inherit">
+            Download
+          </Button>
+          <Button color="inherit">
+            Load
+          </Button>
 
           <IconButton onClick={() => settings.onUpdate('themeMode', !darkMode ? 'dark': 'light')} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness5Icon />}
+            {theme.palette.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Toolbar id="back-to-top-anchor"/>
+      <Toolbar id="back-to-top-anchor" sx={sx}/>
 
       <Drawer open={open} onClose={() => setOpen(false)}>
         <Box width={250} onClick={() => setOpen(false)}>

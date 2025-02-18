@@ -44,11 +44,11 @@ export function useLocalStorage(key: string, initialState: any) {
     setState(initialState);
   }, [key, initialState]);
 
-  return {
+  return [
     state,
     update,
     reset
-  }
+  ]
 }
 
 

@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "SoulForge",
-  description: "An up and coming TTRPG!"
+  description: "An up and coming TTRPG! Count your successes and pave your way to victory!",
+  keywords: ['TTRPG', 'RPG', 'DND', 'Dice Goblin']
 };
 
 export default function RootLayout({
@@ -26,21 +27,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <SettingsProvider
-        defaultSettings={{
-          themeMode: 'light',
-          themePrimary: blue[500],
-          themeSecondary: purple[500]
-        }}
-      >
-        <ThemeProvider>
-          <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin: 0}}>
+      <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin: 0}} suppressHydrationWarning>
+        <SettingsProvider
+          defaultSettings={{
+            themeMode: 'light',
+            themePrimary: blue[500],
+            themeSecondary: purple[500]
+          }}
+        >
+          <ThemeProvider>
             <AppbarDrawer/>
 
             {children}
-          </body>
-        </ThemeProvider>
-      </SettingsProvider>
+          </ThemeProvider>
+        </SettingsProvider>
+      </body>
     </html>
-  );
+)
+  ;
 }
