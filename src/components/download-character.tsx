@@ -1,3 +1,5 @@
+'use client';
+
 import {Button, ButtonProps} from "@mui/material";
 import {useCharacterContext} from "@/context/character/character-context";
 

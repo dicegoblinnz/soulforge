@@ -45,7 +45,7 @@ export type Exhaust = {
 };
 
 export type TagReference = {
-  id: number;
+  id: number; // references a TagId
 };
 
 export type Tag = {

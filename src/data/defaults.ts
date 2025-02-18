@@ -1,4 +1,4 @@
-import {Character} from "@/data/types";
+import {Character, CharacterAbility} from "@/data/types";
 
 export const DEFAULT_CHARACTER: Character = {
   afflictions: [],
@@ -40,4 +40,10 @@ export const DEFAULT_CHARACTER: Character = {
   },
   temporary_tags: [],
   traits: []
+};
+
+export const DEFAULT_CHARACTER_ABILITY: CharacterAbility = {
+  id: -1,
+  exhausted: false,
+  unlocked: true
 };

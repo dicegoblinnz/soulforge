@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Box,
   FormControl,
@@ -10,6 +12,7 @@ import {
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {Ability} from "@/components/character/ability";
+import {idToCharacterAbility} from "@/data/v1/converters";
 
 function KeystoneSelect() {
   return (
@@ -45,15 +48,15 @@ export function Keystone({sx}: Props) {
 
       <Grid container spacing={2} sx={{mt: 2}}>
         <Grid size={6}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={6}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
       </Grid>
     </Box>

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Card,
   CardContent,
@@ -7,6 +9,8 @@ import {
   SxProps,
   Typography
 } from "@mui/material";
+import {CharacterAbility} from "@/data/types";
+import {tags} from "@/data/v1/tags";
 
 function AbilityExhaust() {
   return(
@@ -19,21 +23,27 @@ function AbilityExhaust() {
 }
 
 type Props = {
+  ability: CharacterAbility;
   sx?: SxProps;
 };
 
-export function Ability({sx}: Props) {
+export function Ability({ability, sx}: Props) {
+  const fullAbility = tags.find(v => v.id === ability.id);
+  if (fullAbility === undefined || fullAbility === null) {
+    return null;
+  }
+
   return (
     <Card sx={sx}>
       <CardHeader
-        title="Ability 1"
+        title={fullAbility.name}
         slotProps={{title: {typography: "h6"}}}
         action={<AbilityExhaust/>}
         sx={{pb: 0}}
       />
       <CardContent>
         <Typography typography="body">
-          Sunt quo et aut. Distinctio porro est aspernatur minus vitae eum impedit. Sunt reiciendis minus laborum provident nihil quam dolor. Atque nam voluptatem voluptatem et aperiam repudiandae tempora. Ut qui saepe ab recusandae asperiores dolore velit.
+          {fullAbility.description}
         </Typography>
       </CardContent>
     </Card>

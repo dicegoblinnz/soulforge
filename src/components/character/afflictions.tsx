@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Box,
   Typography,
@@ -5,6 +7,7 @@ import {
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {Ability} from "@/components/character/ability";
+import {idToCharacterAbility} from "@/data/v1/converters";
 
 type Props = {
   sx?: SxProps;
@@ -22,15 +25,15 @@ export function Afflictions({sx}: Props) {
 
       <Grid container spacing={2} sx={{mt: 2}}>
         <Grid size={12}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability/>
+          <Ability ability={idToCharacterAbility(0)}/>
         </Grid>
       </Grid>
     </Box>

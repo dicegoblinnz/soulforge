@@ -4,7 +4,7 @@ import {PropsWithChildren, useCallback, useMemo} from "react";
 import {CharacterContext} from "@/context/character/character-context";
 import {Character} from "@/data/types";
 import {useLocalStorage} from "usehooks-ts";
-import {DEFAULT_CHARACTER} from "@/data/defaults";
+import {DEFAULT_CHARACTER, DEFAULT_CHARACTER_ABILITY} from "@/data/defaults";
 
 
 const CHARACTER_STORAGE_KEY = 'characters';
@@ -112,6 +112,39 @@ export function CharacterProvider({ children }: Props) {
     getSelectedCharacterIndex
   ]);
 
+  const updateAllKinfolkAbilities = useCallback((ids: number[]) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].kinfolk.abilities = ids.map(id => {
+      const matchingAbilities = characters[index].kinfolk.abilities.filter(a => ids.indexOf(a.id) >= 0);
+      const existingAbility = matchingAbilities.length > 0
+        ? matchingAbilities[0]
+        : {...DEFAULT_CHARACTER_ABILITY};
+
+      if (id === existingAbility.id) {
+        return existingAbility;
+      }
+
+      return {
+        id: id,
+        unlocked: true,
+        exhausted: false
+      };
+    });
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
   const memo = useMemo(() => {
     const index = getSelectedCharacterIndex();
     const character = index < 0 ? null : characters[index];
@@ -126,7 +159,8 @@ export function CharacterProvider({ children }: Props) {
       updateTrueName: updateTrueName,
       updateAspiration: updateAspiration,
       updateCoreValue: updateCoreValue,
-      updateVice: updateVice
+      updateVice: updateVice,
+      updateAllKinfolkAbilities: updateAllKinfolkAbilities
     };
   }, [
     characters,
@@ -136,7 +170,8 @@ export function CharacterProvider({ children }: Props) {
     updateTrueName,
     updateAspiration,
     updateCoreValue,
-    updateVice
+    updateVice,
+    updateAllKinfolkAbilities
   ]);
 
   return (
