@@ -804,7 +804,7 @@ export const tags: Tag[] = [
     id: 112,
     name: "Reputation",
     description: "You can leverage your noble status to secure a favor for the entire party—such as VIP lodging, invitations to a noble gala, or a brief audience with local leaders.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 113,
@@ -828,7 +828,7 @@ export const tags: Tag[] = [
     id: 116,
     name: "Hometown Hero",
     description: "Anyone who recognizes the Bardic Icon, will be treated as a d8 relationship status for the entire party.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 117,
@@ -852,7 +852,7 @@ export const tags: Tag[] = [
     id: 120,
     name: "Squad Tactics",
     description: "Using your help action, you orchestrate a coordinated tactic that grants your Ally a +1 on any of their dice.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 121,
@@ -876,7 +876,7 @@ export const tags: Tag[] = [
     id: 124,
     name: "Magical Boons",
     description: "Each Character chooses a boon once a day of the list: Speed (Increase movement by 2 units), Luck (Gain 5 points that you can use per day to boost your dice), Protection (Gain a Temporary Protection Tag), Empower (Increase the Attribute dice by 1 category), Focus (Choose to explode a dice of your choice).",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 125,
@@ -900,7 +900,7 @@ export const tags: Tag[] = [
     id: 128,
     name: "Black Market Access",
     description: "You can tap into the black market to supply the entire party with rare or illegal items, such as enchanted weapons, forbidden knowledge scrolls, illicit potions, or other valuable contraband.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 129,
@@ -924,7 +924,7 @@ export const tags: Tag[] = [
     id: 132,
     name: "Divine Blessings",
     description: "Dice explode on 1s, once per scene per character.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 133,
@@ -948,7 +948,7 @@ export const tags: Tag[] = [
     id: 136,
     name: "Portable Crafting Station",
     description: "You have a portable crafting station that grants a 1 downtime decrease on crafting cost per week.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 137,
@@ -972,7 +972,7 @@ export const tags: Tag[] = [
     id: 140,
     name: "Pack Tactics",
     description: "Providing the Help action gives an ally Advantage to their action.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 141,
@@ -996,7 +996,7 @@ export const tags: Tag[] = [
     id: 144,
     name: "The Diplomatic Network",
     description: "Once per session, the party can call on the Diplomatic Envoy’s network to bypass a challenge, secure safe passage, or acquire rare information. Gain a d8 Ally for the scene.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 145,
@@ -1020,7 +1020,7 @@ export const tags: Tag[] = [
     id: 148,
     name: "Preparation",
     description: "At the start of each session or after a significant rest, the party gains a shared pool of Prepared Points equal to the number of players + 2.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 149,
@@ -1044,7 +1044,7 @@ export const tags: Tag[] = [
     id: 152,
     name: "Loyal Companion",
     description: "The party has a shared Animal Companion Ally (wolf, hawk, giant lizard, etc.), a beast that assists the group as an active NPC.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   },
   {
     id: 153,
@@ -1068,6 +1068,6 @@ export const tags: Tag[] = [
     id: 156,
     name: "Construct Forge",
     description: "The party can forge constructs by combining existing Mundane Tags from items or resources.",
-    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+    categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_TAG],
   }
 ];

@@ -9,7 +9,7 @@ export enum ETagCategories {
   KEYSTONE = "Keystone",
   KINFOLK = "Kinfolk",
   ARCHETYPE = "Archetype",
-  PARTY_WIDE = "Party-wide",
+  PARTY_TAG = "Party-Tag",
   DAMAGE = "Damage",
   BUFF = "Buff",
   DEBUFF = "Debuff",
