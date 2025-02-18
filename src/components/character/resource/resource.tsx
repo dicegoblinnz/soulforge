@@ -1,60 +1,83 @@
-import {Box, IconButton, Stack, Typography} from "@mui/material";
+import {CardContent, IconButton, Stack, styled, SvgIconProps, Typography} from "@mui/material";
 import {ReactNode} from "react";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import {SoulforgeCard} from "@/components/soulforge-card";
+
+
+const IncreaseIconButton = styled(IconButton)`
+  color: ${p => p.theme.palette.mode === 'dark' ? p.theme.palette.info.light : p.theme.palette.info.light};
+  transition: color 0.15s;
+
+  &:hover {
+    color: ${p => p.theme.palette.mode === 'dark' ? p.theme.palette.info.light : p.theme.palette.info.light};
+  }
+`;
+
+const DecreaseIconButton = styled(IconButton)`
+  color: ${p => p.theme.palette.mode === 'dark' ? p.theme.palette.warning.light : p.theme.palette.warning.main};
+  transition: color 0.15s;
+  
+  &:hover {
+    color: ${p => p.theme.palette.mode === 'dark' ? p.theme.palette.warning.light : p.theme.palette.warning.main};
+  }
+`;
 
 
 type Props = {
   value: number;
-  icon: ReactNode;
+  renderIcon: (props: SvgIconProps) => ReactNode;
   name: string;
   onUpdate: (newValue: number) => void;
 };
 
-export function Resource({ value, icon, name, onUpdate }: Props) {
+export function Resource({ value, renderIcon, name, onUpdate }: Props) {
   const increase = () => onUpdate(value + 1);
   const decrease = () => onUpdate(value - 1);
   // const setValue = (newValue: number) => onUpdate(newValue);
 
   return (
-    <Box
-      display="flex"
-      gap={1}
-      flexDirection="column"
-      alignItems="center"
-    >
-      <Stack
-        direction="row"
-        spacing={1}
-        alignItems="center"
+    <SoulforgeCard>
+      <CardContent
         sx={{
-          borderStyle: 'solid',
-          borderWidth: '2px',
-          borderRadius: 5
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
         }}
+        style={{paddingBottom: "16px"}}
       >
-        <IconButton onClick={() => decrease()}>
-          <KeyboardDoubleArrowDownIcon/>
-        </IconButton>
-
-        <Typography
-          sx={{
-            minWidth: "20px",
-            textAlign: "center"
-          }}
+        <Stack
+          direction="row"
+          spacing={1}
+          alignItems="center"
         >
-          {value}
-        </Typography>
+          <DecreaseIconButton onClick={() => decrease()}>
+            <KeyboardDoubleArrowDownIcon/>
+          </DecreaseIconButton>
 
-        <IconButton onClick={() => increase()}>
-          <KeyboardDoubleArrowUpIcon/>
-        </IconButton>
-      </Stack>
+          <Typography
+            sx={{
+              minWidth: "20px",
+              textAlign: "center"
+            }}
+          >
+            {value}
+          </Typography>
 
-      <Stack direction="row" spacing={1}>
-        {icon}
-        <Typography>{name}</Typography>
-      </Stack>
-    </Box>
+          <IncreaseIconButton onClick={() => increase()}>
+            <KeyboardDoubleArrowUpIcon/>
+          </IncreaseIconButton>
+        </Stack>
+
+        <Stack direction="row" spacing={1}>
+          {renderIcon({})}
+          <Typography
+            variant="body1"
+          >
+            {name}
+          </Typography>
+        </Stack>
+      </CardContent>
+    </SoulforgeCard>
   );
 }

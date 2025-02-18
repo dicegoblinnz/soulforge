@@ -3,15 +3,13 @@
 import {
   Box,
   Typography,
-  CardContent,
-  SxProps
+  SxProps, SvgIconProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import {Resource} from "@/components/character/resource/resource";
 import {useCharacterContext} from "@/context/character/character-context";
-import {SoulforgeCard} from "@/components/soulforge-card";
 
 type Props = {
   sx?: SxProps;
@@ -23,6 +21,14 @@ export function Resources({sx}: Props) {
   const fate = character.character?.resources.fate.value ?? -1;
   const downtime = character.character?.resources.downtime.value ?? -1;
 
+  const renderDiamondIcon = (props: SvgIconProps) => {
+    return <DiamondIcon {...props}/>;
+  };
+
+  const renderBedtimeIcon = (props: SvgIconProps) => {
+    return <BedtimeIcon {...props}/>;
+  };
+
   return (
     <Box sx={sx}>
       <Typography
@@ -32,29 +38,25 @@ export function Resources({sx}: Props) {
         Resources
       </Typography>
 
-      <SoulforgeCard sx={{mt: 2}}>
-        <CardContent>
-          <Grid container spacing={2} sx={{mt: 2}}>
-            <Grid size={6}>
-              <Resource
-                name="Fate"
-                icon={<DiamondIcon/>}
-                value={fate}
-                onUpdate={(newValue: number) => character.updateFate(newValue)}
-              />
-            </Grid>
+      <Grid container spacing={2} sx={{mt: 2}}>
+        <Grid size={2}>
+          <Resource
+            name="Fate"
+            renderIcon={renderDiamondIcon}
+            value={fate}
+            onUpdate={(newValue: number) => character.updateFate(newValue)}
+          />
+        </Grid>
 
-            <Grid size={6}>
-              <Resource
-                name="Downtime"
-                icon={<BedtimeIcon/>}
-                value={downtime}
-                onUpdate={(newValue: number) => character.updateDowntime(newValue)}
-              />
-            </Grid>
-          </Grid>
-        </CardContent>
-      </SoulforgeCard>
+        <Grid size={2}>
+          <Resource
+            name="Downtime"
+            renderIcon={renderBedtimeIcon}
+            value={downtime}
+            onUpdate={(newValue: number) => character.updateDowntime(newValue)}
+          />
+        </Grid>
+      </Grid>
     </Box>
   );
 }

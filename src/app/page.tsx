@@ -1,7 +1,7 @@
 'use client';
 
 import {TabContext, TabList, TabPanel} from "@mui/lab";
-import {Box, Stack, Tab, Typography, useTheme} from "@mui/material";
+import {Box, Card, Stack, Tab, Typography, useTheme} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
 import {Lore} from "@/components/character/lore";
 import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
@@ -42,35 +42,37 @@ export default function Home() {
           <Lore sx={{mt: 4}}/>
 
           <TabContext value={value}>
-            <Box sx={{borderBottom: 1, borderColor: 'divider', mt: 4}}>
-              <TabList onChange={handleChange}>
-                <Tab label="Core" value="1"/>
-                <Tab label="Self" value="2"/>
-                <Tab label="Status" value="3"/>
-              </TabList>
-            </Box>
+            <Card variant="outlined" sx={{mt: 4}}>
+              <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
+                <TabList onChange={handleChange}>
+                  <Tab label="Core" value="1"/>
+                  <Tab label="Self" value="2"/>
+                  <Tab label="Status" value="3"/>
+                </TabList>
+              </Box>
 
-            <TabPanel value="1">
-              <Resources/>
-              <Keystone sx={{mt: 4}}/>
-            </TabPanel>
+              <TabPanel value="1">
+                <Resources/>
+                <Keystone sx={{mt: 4}}/>
+              </TabPanel>
 
-            <TabPanel value="2">
-              <CharacterArchetype/>
-              <Kinfolk sx={{mt: 4}}/>
-            </TabPanel>
+              <TabPanel value="2">
+                <CharacterArchetype/>
+                <Kinfolk sx={{mt: 4}}/>
+              </TabPanel>
 
-            <TabPanel value="3">
-              <Grid container spacing={2}>
-                <Grid size={6}>
-                  <TemporaryTags/>
+              <TabPanel value="3">
+                <Grid container spacing={2}>
+                  <Grid size={6}>
+                    <TemporaryTags/>
+                  </Grid>
+
+                  <Grid size={6}>
+                    <Afflictions/>
+                  </Grid>
                 </Grid>
-
-                <Grid size={6}>
-                  <Afflictions/>
-                </Grid>
-              </Grid>
-            </TabPanel>
+              </TabPanel>
+            </Card>
           </TabContext>
         </main>
       </div>
