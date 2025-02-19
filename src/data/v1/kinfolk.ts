@@ -4,7 +4,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 1,
     name: "Humanfolk",
-    description: null,
     tags: [
       { id: 70 }, // Quick Study
       { id: 71 }, // Determined
@@ -14,7 +13,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 2,
     name: "Giantfolk",
-    description: null,
     tags: [
       { id: 73 }, // Powerful Build
       { id: 74 }, // Blood Bond
@@ -24,7 +22,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 3,
     name: "Sylvanfolk",
-    description: null,
     tags: [
       { id: 76 }, // Memory Palace
       { id: 77 }, // Arcane Affinity
@@ -34,7 +31,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 4,
     name: "Deepfolk",
-    description: null,
     tags: [
       { id: 79 }, // Morphic Beards
       { id: 80 }, // Strands of Steel
@@ -44,7 +40,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 5,
     name: "Smallfolk",
-    description: null,
     tags: [
       { id: 82 }, // Nature Skin
       { id: 83 }, // Resourceful
@@ -54,7 +49,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 6,
     name: "Mammalfolk",
-    description: null,
     tags: [
       { id: 85 }, // Swift
       { id: 86 }, // Wild Shift
@@ -64,7 +58,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 7,
     name: "Lizardfolk",
-    description: null,
     tags: [
       { id: 88 }, // Regeneration
       { id: 89 }, // Natural Armor
@@ -74,7 +67,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 8,
     name: "Birdfolk",
-    description: null,
     tags: [
       { id: 91 }, // Flight
       { id: 92 }, // Plume Shield
@@ -84,7 +76,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 9,
     name: "Merfolk",
-    description: null,
     tags: [
       { id: 94 }, // Skin Deep
       { id: 95 }, // Higher Vibration
@@ -94,7 +85,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 10,
     name: "Bogfolk",
-    description: null,
     tags: [
       { id: 97 }, // Poisonous
       { id: 98 }, // Elastic Tongue
@@ -104,7 +94,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 11,
     name: "Dragonfolk",
-    description: null,
     tags: [
       { id: 100 }, // Dragon’s Breath
       { id: 101 }, // Elemental Affinity
@@ -114,7 +103,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 12,
     name: "Insectfolk",
-    description: null,
     tags: [
       { id: 103 }, // Harvesting
       { id: 104 }, // Hive Mind
@@ -124,7 +112,6 @@ export const kinfolk: Kinfolk[] = [
   {
     id: 13,
     name: "Soul Bound",
-    description: null,
     tags: [
       { id: 106 }, // Modular V1
       { id: 107 }, // Modular V2
