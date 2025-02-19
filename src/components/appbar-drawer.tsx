@@ -9,16 +9,11 @@ import {
   Fab,
   IconButton,
   List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Toolbar,
   Typography,
   useTheme,
-  SxProps, styled
+  SxProps, styled, SvgIconProps
 } from "@mui/material";
-import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {ReturnHome} from "@/components/return-home";
@@ -31,6 +26,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import dynamic from "next/dynamic";
 import {useSettingsContext} from "@/context/settings/settings-context";
 import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
+import {DrawerListItem} from "@/components/drawer-list-item";
 
 const DynamicScrollTop = dynamic(() => import('@/components/scroll-top'), {ssr: false});
 
@@ -52,6 +48,25 @@ export function AppbarDrawer({sx, children}: Props) {
 
   const appBarSize = !isSmall ? "64px" : "72px";
   const buttonSize = !isSmall ? "medium" : "large";
+
+
+  const renderHomeIcon = (props: SvgIconProps) => {
+    return <HomeIcon {...props} />
+  };
+
+  const renderFullscreenIcon = (props: SvgIconProps) => {
+    return <FullscreenIcon {...props} />
+  };
+
+  const renderTableViewIcon = (props: SvgIconProps) => {
+    return <TableViewIcon {...props} />
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const renderSpinnerIcon = (_: SvgIconProps) => {
+    return <CircularProgress size="24px" thickness={4}/>
+  };
+
 
   return (
     <>
@@ -82,48 +97,34 @@ export function AppbarDrawer({sx, children}: Props) {
       <Drawer open={open} onClose={() => setOpen(false)}>
         <Box width={250} height="100%" onClick={() => setOpen(false)}>
           <List sx={{p: 0, display: "flex", flexDirection: "column", height: "100%"}}>
-            <GradientBox height={64} display="flex" alignItems="center" justifyContent="center">
-              <Typography variant="h6" sx={{textAlign: "center"}}>SoulForge</Typography>
+            <GradientBox height={appBarSize} display="flex" alignItems="center" justifyContent="center">
+              <Typography variant={!isSmall ? "h6" : "h5"} sx={{textAlign: "center"}}>SoulForge</Typography>
             </GradientBox>
             <Divider/>
 
-            <ListItem disablePadding>
-              <ListItemButton component={Link} href="/">
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem disablePadding>
-              <ListItemButton component={Link} href="/full">
-                <ListItemIcon>
-                  <FullscreenIcon />
-                </ListItemIcon>
-                <ListItemText primary="Full" />
-              </ListItemButton>
-            </ListItem>
-
-            <ListItem disablePadding>
-              <ListItemButton component={Link} href="/data">
-                <ListItemIcon>
-                  <TableViewIcon />
-                </ListItemIcon>
-                <ListItemText primary="Data" />
-              </ListItemButton>
-            </ListItem>
+            <DrawerListItem
+              link="/"
+              text="Home"
+              renderIcon={renderHomeIcon}
+            />
+            <DrawerListItem
+              link="/full"
+              text="Full"
+              renderIcon={renderFullscreenIcon}
+            />
+            <DrawerListItem
+              link="/data"
+              text="Data"
+              renderIcon={renderTableViewIcon}
+            />
 
             <Divider sx={{mt: "auto"}}/>
 
-            <ListItem disablePadding>
-              <ListItemButton component={Link} href="/loading">
-                <ListItemIcon>
-                  <CircularProgress size="24px" thickness={4}/>
-                </ListItemIcon>
-                <ListItemText primary="Loading page" />
-              </ListItemButton>
-            </ListItem>
+            <DrawerListItem
+              link="/loading"
+              text="Loading page"
+              renderIcon={renderSpinnerIcon}
+            />
           </List>
         </Box>
       </Drawer>
