@@ -5,13 +5,14 @@ import {
   Stack,
   Typography,
   CardContent,
-  SxProps
+  SxProps, useTheme
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/character/ability";
 import {KinfolkModal} from "@/components/character/kinfolk_modal";
 import {useCharacterContext} from "@/context/character/character-context";
 import {SoulforgeCard} from "@/components/soulforge-card";
+import {CharacterTagCard} from "@/components/character/character-tag-card";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 type Props = {
   sx?: SxProps;
@@ -19,13 +20,21 @@ type Props = {
 
 export function Kinfolk({sx}: Props) {
   const character = useCharacterContext();
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
 
-  const abilityInfo = (character.character?.kinfolk.abilities ?? []).length !== 0
+  const cardSize = !isSmall ? 4 : 12;
+
+  const abilityInfo = (character.character?.kinfolk.tags ?? []).length !== 0
     ? (
       <>
-        {character.character?.kinfolk.abilities.map((a, i) => (
-          <Grid size={4} key={`${i}-${a.id}`}>
-            <Ability ability={a} sx={{height: "100%"}}/>
+        {character.character?.kinfolk.tags.map((a, i) => (
+          <Grid size={cardSize} key={`${i}-${a.id}`}>
+            <CharacterTagCard
+              ability={a}
+              onSetExhaust={v => character.updateKinfolkAbility(a.id, {exhausted: v})}
+              sx={{height: "100%"}}
+            />
           </Grid>
         ))}
       </>

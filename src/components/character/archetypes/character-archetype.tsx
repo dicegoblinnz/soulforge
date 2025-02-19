@@ -4,13 +4,16 @@ import {
   Box,
   Stack,
   Typography,
-  SxProps, Card, CardContent
+  Card,
+  CardContent,
+  SxProps, useTheme
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/character/ability";
 import {CharacterArchetypeModal} from "@/components/character/archetypes/character-archetype-modal";
 import {useCharacterContext} from "@/context/character/character-context";
 import {archetypes} from "@/data/v1/archetypes";
+import {CharacterTagCard} from "@/components/character/character-tag-card";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 type Props = {
   sx?: SxProps;
@@ -18,17 +21,38 @@ type Props = {
 
 export function CharacterArchetype({sx}: Props) {
   const character = useCharacterContext();
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
+  const cardSize = !isSmall ? 4 : 12;
 
   const archetype = archetypes.find(a => a.id === character.character?.archetype.id);
-  const cardTitle = (archetype !== undefined && archetype !== null)
-    ? `Archetype: ${archetype.name}` : "Archetype";
 
-  const abilityInfo = (character.character?.archetype.abilities ?? []).length !== 0
+  const title = (
+    <Typography variant="h5" color="textPrimary">
+      {(archetype?.name !== null && archetype?.name !== undefined) && (archetype.name ?? '').length !== 0
+        ? archetype.name : "Archetype"}
+    </Typography>
+  );
+  const subtitle = (
+    (archetype?.name !== null && archetype?.name !== undefined) && (archetype.name ?? '').length !== 0
+      ? (
+        <Typography variant="body1" color="textSecondary">
+          Archetype
+        </Typography>
+      ) : null
+  );
+
+  const abilityInfo = (character.character?.archetype.tags ?? []).length !== 0
     ? (
       <>
-        {character.character?.archetype.abilities.map((a, i) => (
-          <Grid size={4} key={`${i}-${a.id}`}>
-            <Ability ability={a} sx={{height: "100%"}}/>
+        {character.character?.archetype.tags.map((a, i) => (
+          <Grid size={cardSize} key={`${i}-${a.id}`}>
+            <CharacterTagCard
+              ability={a}
+              onSetExhaust={v => character.updateArchetypeAbility(a.id, {exhausted: v})}
+              sx={{height: "100%"}}
+            />
           </Grid>
         ))}
       </>
@@ -47,12 +71,10 @@ export function CharacterArchetype({sx}: Props) {
   return (
     <Box sx={sx}>
       <Stack justifyContent="space-between" direction="row">
-        <Typography
-          variant="h5"
-          component="h5"
-        >
-          {cardTitle}
-        </Typography>
+        <Stack spacing={0}>
+          {title}
+          {subtitle}
+        </Stack>
 
         <CharacterArchetypeModal/>
       </Stack>

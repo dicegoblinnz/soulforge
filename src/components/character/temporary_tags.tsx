@@ -1,49 +1,42 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
 import {
-    Box,
-    Typography,
-    SxProps
+  Box,
+  Typography,
+  SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import { Ability } from "@/components/character/ability";
-import { idToCharacterAbility } from "@/data/v1/converters";
+import {Ability} from "@/components/character/ability";
+import {idToCharacterAbility} from "@/data/v1/converters";
 
 type Props = {
-    sx?: SxProps;
+  sx?: SxProps;
 };
 
-export const TemporaryTags: React.FC<Props> = ({ sx }) => {
-    // Delay rendering until after mount to avoid hydration mismatches.
-    const [mounted, setMounted] = useState(false);
+export function TemporaryTags({sx}: Props) {
+  return (
+    <Box sx={sx}>
+      <Typography
+        variant="h5"
+        component="h5"
+      >
+        Temporary Tags
+      </Typography>
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+      <Grid container spacing={2} sx={{mt: 2}}>
+        <Grid size={12}>
+          <Ability ability={idToCharacterAbility(0)}/>
+        </Grid>
 
-    if (!mounted) {
-        return null;
-    }
+        <Grid size={12}>
+          <Ability ability={idToCharacterAbility(0)}/>
+        </Grid>
 
-    return (
-        <Box sx={sx}>
-            <Typography variant="h5" component="h5">
-                Temporary Tags
-            </Typography>
+        <Grid size={12}>
+          <Ability ability={idToCharacterAbility(0)}/>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+}
 
-            {/* Abilities Section */}
-            <Grid container spacing={2} sx={{ mt: 2 }}>
-                <Grid xs={12}>
-                    <Ability ability={idToCharacterAbility(0)} />
-                </Grid>
-                <Grid xs={12}>
-                    <Ability ability={idToCharacterAbility(0)} />
-                </Grid>
-                <Grid xs={12}>
-                    <Ability ability={idToCharacterAbility(0)} />
-                </Grid>
-            </Grid>
-        </Box>
-    );
-};

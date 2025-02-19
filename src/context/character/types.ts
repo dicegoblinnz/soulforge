@@ -27,17 +27,17 @@ export type CharacterContextProps = {
   updateDowntime: (value: number) => void;
 
   // Keystone
-  // updateKeystone: (id: number) => void;
-  // updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
+  updateKeystone: (id: number) => void;
+  updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Archetype
   updateArchetype: (id: number) => void;
-  // updateArchetypeAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
+  updateArchetypeAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Kinfolk
   // updateKinfolk: (id: number) => void;
-  // updateKinfolkAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
   updateAllKinfolkAbilities: (ids: number[]) => void;
+  updateKinfolkAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Traits
   // updateTrait: (oldId: number, newId: number) => void;

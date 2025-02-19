@@ -1,32 +1,47 @@
+'use client';
+
 import {Lore} from "@/components/character/lore";
-import {Keystone} from "@/components/character/keystone";
+import {Keystone} from "@/components/character/keystones/keystone";
 import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
 import {Kinfolk} from "@/components/character/kinfolk";
-import Grid from "@mui/material/Grid2";
 import {TemporaryTags} from "@/components/character/temporary_tags";
 import {Afflictions} from "@/components/character/afflictions";
 import {Resources} from "@/components/character/resource/resources";
+import {CharacterProvider} from "@/context/character/character-provider";
+import {Box, Stack, useTheme} from "@mui/material";
+import {MainHeader} from "@/components/main/main-header";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
+import Grid from "@mui/material/Grid2";
 
-export default function Page() {
+export default function Full() {
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <div style={{display: "flex", justifyContent: "center"}}>
-      <main style={{width: "1000px"}}>
-        <Lore sx={{mt: 2}}/>
-        <Resources sx={{mt: 4}}/>
-        <Keystone sx={{mt: 2}}/>
-        <CharacterArchetype sx={{mt: 2}}/>
-        <Kinfolk sx={{mt: 2}}/>
+    <CharacterProvider>
+      <main style={{maxWidth: "100%", margin: theme.spacing(2), display: "flex", justifyContent: "center"}}>
+        <Box sx={{maxWidth: isSmall ? "100%" : "1000px"}}>
+          <MainHeader isSmall={isSmall}/>
 
-        <Grid container spacing={2} sx={{mt: 2, mb: 8}}>
-          <Grid size={6}>
-            <TemporaryTags/>
-          </Grid>
+          <Stack spacing={2} sx={{mt: 4}}>
+            <Lore/>
+            <Resources/>
+            <Keystone/>
+            <CharacterArchetype/>
+            <Kinfolk/>
 
-          <Grid size={6}>
-            <Afflictions/>
-          </Grid>
-        </Grid>
+            <Grid container spacing={2}>
+              <Grid size={6}>
+                <TemporaryTags/>
+              </Grid>
+
+              <Grid size={6}>
+                <Afflictions/>
+              </Grid>
+            </Grid>
+          </Stack>
+        </Box>
       </main>
-    </div>
+    </CharacterProvider>
   );
 }

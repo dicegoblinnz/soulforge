@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import {AppbarDrawer} from "@/components/appbar_drawer";
+import {AppbarDrawer} from "@/components/appbar-drawer";
 import {SettingsProvider} from "@/context/settings/settings-provider";
 import {ThemeProvider} from "@/context/theme-provider";
 import {blue, purple} from "@mui/material/colors";
