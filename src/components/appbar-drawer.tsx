@@ -12,15 +12,16 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText, SxProps,
+  ListItemText,
   Toolbar,
   Typography,
-  useTheme
+  useTheme,
+  SxProps, styled
 } from "@mui/material";
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import {ReturnHome} from "@/components/return_home";
+import {ReturnHome} from "@/components/return-home";
 import {PropsWithChildren, useState} from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
@@ -29,8 +30,13 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import dynamic from "next/dynamic";
 import {useSettingsContext} from "@/context/settings/settings-context";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 const DynamicScrollTop = dynamic(() => import('@/components/scroll-top'), {ssr: false});
+
+const GradientBox = styled(Box)`
+  background: linear-gradient(50deg, ${p => p.theme.palette.primary.main}35, ${p => p.theme.palette.primary.main}15);
+`;
 
 type Props = {
   sx?: SxProps;
@@ -42,10 +48,15 @@ export function AppbarDrawer({sx, children}: Props) {
   const theme = useTheme();
   const darkMode = theme.palette.mode === 'dark';
 
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
+  const appBarSize = !isSmall ? "64px" : "72px";
+  const buttonSize = !isSmall ? "medium" : "large";
+
   return (
     <>
-      <AppBar position="fixed" sx={sx}>
-        <Toolbar>
+      <AppBar position="fixed" sx={{minHeight: appBarSize, ...sx}}>
+        <Toolbar  sx={{minHeight: appBarSize}}>
           <IconButton
             size="large"
             edge="start"
@@ -54,26 +65,26 @@ export function AppbarDrawer({sx, children}: Props) {
             sx={{ mr: 2 }}
             onClick={() => setOpen(true)}
           >
-            <MenuIcon />
+            <MenuIcon fontSize={buttonSize} />
           </IconButton>
 
           <ReturnHome/>
 
           <div style={{flexGrow: 1}}/>
 
-          <IconButton onClick={() => settings.onUpdate('themeMode', !darkMode ? 'dark': 'light')} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+          <IconButton onClick={() => settings.onUpdate('themeMode', !darkMode ? 'dark': 'light')} color="inherit" size={buttonSize}>
+            {theme.palette.mode === 'dark' ? <Brightness4Icon fontSize={buttonSize} /> : <Brightness7Icon fontSize={buttonSize} />}
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Toolbar id="back-to-top-anchor" sx={sx}/>
+      <Toolbar id="back-to-top-anchor" sx={{minHeight: appBarSize}}/>
 
       <Drawer open={open} onClose={() => setOpen(false)}>
         <Box width={250} height="100%" onClick={() => setOpen(false)}>
           <List sx={{p: 0, display: "flex", flexDirection: "column", height: "100%"}}>
-            <Box height={64} display="flex" alignItems="center" justifyContent="center">
+            <GradientBox height={64} display="flex" alignItems="center" justifyContent="center">
               <Typography variant="h6" sx={{textAlign: "center"}}>SoulForge</Typography>
-            </Box>
+            </GradientBox>
             <Divider/>
 
             <ListItem disablePadding>
