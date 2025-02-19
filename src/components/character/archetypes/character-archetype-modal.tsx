@@ -1,9 +1,10 @@
 'use client';
 
-import {Box, Button, Card, CardContent, CardHeader, Modal} from "@mui/material";
+import {Box, Button, Card, CardContent, CardHeader, Modal, useTheme} from "@mui/material";
 import {useState} from "react";
 import {archetypes} from "@/data/v1/archetypes";
-import {ArchetypeCard} from "@/components/character/archetypes/archetype-card";
+import {ArchetypeGrid} from "@/components/character/archetypes/archetype-grid";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 const style = {
   position: 'absolute',
@@ -38,7 +39,7 @@ export function CharacterArchetypeModal() {
           <CardContent>
             <Box sx={{maxHeight: "60vh", overflowY: 'auto', px: 1}}>
               {archetypes.map((a, i) => (
-                <ArchetypeCard key={i} archetype={a} onSelect={handleClose} sx={{mt: 4}}/>
+                <ArchetypeGrid key={i} archetype={a} onSelect={handleClose} sx={{mt: 4}}/>
               ))}
             </Box>
           </CardContent>
