@@ -13,17 +13,18 @@ import {ReactNode} from "react";
 type Props = {
   id: number;
   action?: ReactNode;
+  exhausted?: boolean;
   sx?: SxProps;
 };
 
-export function TagCard({id, action, sx}: Props) {
+export function TagCard({id, action, exhausted, sx}: Props) {
   const fullAbility = tags.find(v => v.id === id);
   if (fullAbility === undefined || fullAbility === null) {
     return null;
   }
 
   return (
-    <SoulforgeCard sx={sx}>
+    <SoulforgeCard exhausted={exhausted} sx={sx}>
       <CardHeader
         title={fullAbility.name}
         slotProps={{title: {typography: "h6"}}}

@@ -11,8 +11,8 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {TagCard} from "@/components/character/tag-card";
 import {idToCharacterAbility} from "@/data/v1/converters";
+import {CharacterTagCard} from "@/components/character/character-tag-card";
 
 function KeystoneSelect() {
   return (
@@ -48,15 +48,15 @@ export function Keystone({sx}: Props) {
 
       <Grid container spacing={2} sx={{mt: 2}}>
         <Grid size={6}>
-          <TagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
+          <CharacterTagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
         <Grid size={6}>
-          <TagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
+          <CharacterTagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
         <Grid size={12}>
-          <TagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
+          <CharacterTagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
       </Grid>
     </Box>

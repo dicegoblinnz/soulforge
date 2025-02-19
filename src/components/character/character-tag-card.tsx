@@ -52,6 +52,6 @@ export function CharacterTagCard({ability, exhaustable, onSetExhaust, sx}: Props
     ) : null;
 
   return (
-    <TagCard id={ability.id} action={abilityAction} sx={sx}/>
+    <TagCard id={ability.id} action={abilityAction} exhausted={ability.exhausted} sx={sx}/>
   );
 }
