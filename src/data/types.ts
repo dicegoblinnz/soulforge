@@ -33,6 +33,7 @@ export enum ETagCategories {
   MYTHICAL = "Mythical",
   ELEMENT = "Element",
   CREATURE = "Creature",
+  CONDITIONS = "Conditions"
 }
 
 export enum ETraitCategories {
