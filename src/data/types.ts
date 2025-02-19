@@ -20,6 +20,7 @@ export enum ETagCategories {
   MATERIAL_MYTHICAL = "Material Mythical",
   ELEMENT = "Element",
   CREATURE = "Creature",
+  ULTIMATE = "Ultimate",
 }
 
 export enum ETraitCategories {
@@ -30,7 +31,7 @@ export enum ETraitCategories {
 export type Affliction = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
   categories: EAfflictionCategory[];
 };
 
@@ -40,12 +41,8 @@ export type AfflictionReference = {
 
 export type Exhaust = {
   description: string;
-  afflictions: Affliction[];
-  tags: Tag[];
-};
-
-export type TagReference = {
-  id: number; // references a TagId
+  afflictions?: AfflictionReference[];
+  tags?: TagReference[];
 };
 
 export type Tag = {
@@ -58,51 +55,55 @@ export type Tag = {
   exhaust?: Exhaust;
 };
 
+export type TagReference = {
+  id: number; // references a TagId
+};
+
 export type Aspiration = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
 };
 
 export type CoreValue = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
 };
 
 export type Vice = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
 };
 
 export type Keystone = {
   id: number;
   name: string;
-  description: string | null;
-  abilities: TagReference[];
+  description?: string;
+  tags: TagReference[];
 };
 
 export type Kinfolk = {
   id: number;
   name: string;
-  description: string | null;
-  abilities: TagReference[];
+  description?: string;
+  tags: TagReference[];
 };
 
 export type Archetype = {
   id: number;
   name: string;
   description?: string;
-  abilities: TagReference[];
+  tags: TagReference[];
 };
 
 export type Trait = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
   categories: ETraitCategories[];
-  ability: TagReference;
+  tag: TagReference;
 };
 
 export type Resource = {
@@ -132,7 +133,7 @@ export type CharacterLore = {
   };
 };
 
-export type CharacterAbility = {
+export type CharacterTag = {
   id: number; // references TagId
   unlocked: boolean;
   exhausted: boolean;
@@ -141,25 +142,25 @@ export type CharacterAbility = {
 export type CharacterKeystone = {
   id: number; // references KeystoneId
   note: string;
-  abilities: CharacterAbility[];
+  tags: CharacterTag[];
 };
 
 export type CharacterArchetype = {
   id: number; // references ArchetypeId
   note: string;
-  abilities: CharacterAbility[];
+  tags: CharacterTag[];
 };
 
 export type CharacterKinfolk = {
   id: number; // references KinfolkId
   note: string;
-  abilities: CharacterAbility[];
+  tags: CharacterTag[];
 };
 
 export type CharacterTrait = {
   id: number; // references TraitId
   note: string;
-  abilities: CharacterAbility[];
+  tags: CharacterTag[];
 };
 
 export type CharacterResources = {

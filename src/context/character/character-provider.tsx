@@ -6,6 +6,7 @@ import {Character} from "@/data/types";
 import {useLocalStorage} from "usehooks-ts";
 import {DEFAULT_CHARACTER, DEFAULT_CHARACTER_ABILITY} from "@/data/defaults";
 import {archetypes} from "@/data/v1/archetypes";
+import {keystones} from "@/data/v1/keystones";
 
 
 const CHARACTER_STORAGE_KEY = 'characters';
@@ -223,6 +224,68 @@ export function CharacterProvider({ children }: Props) {
   ]);
 
 
+  // Keystone
+  const updateKeystone = useCallback((id: number) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].keystone.id = id;
+
+    const keystone = keystones.find(k => k.id === id);
+    if (keystone === undefined || keystone === null) {
+      console.error(`failed to find keystone with id ${id}`);
+      return;
+    }
+
+    characters[index].keystone.tags = keystone.tags.map(t => ({
+      id: t.id,
+      unlocked: true,
+      exhausted: false,
+    }));
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+  const updateKeystoneAbility = useCallback((id: number, value: {unlocked?: boolean, exhausted?: boolean}) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    const tagIndex = characters[index].keystone.tags.findIndex(a => a.id === id);
+    if (tagIndex < 0) {
+      console.error(`failed to find archetype ability with id ${id}`);
+      return;
+    }
+
+    if (value.unlocked !== undefined && value.unlocked !== null) {
+      characters[index].keystone.tags[tagIndex].unlocked = value.unlocked;
+    }
+
+    if (value.exhausted !== undefined && value.exhausted !== null) {
+      characters[index].keystone.tags[tagIndex].exhausted = value.exhausted;
+    }
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+
   // Archetype
   const updateArchetype = useCallback((id: number) => {
     const index = getSelectedCharacterIndex();
@@ -240,7 +303,7 @@ export function CharacterProvider({ children }: Props) {
       return;
     }
 
-    characters[index].archetype.abilities = archetype.abilities.map(a => ({
+    characters[index].archetype.tags = archetype.tags.map(a => ({
       id: a.id,
       unlocked: true,
       exhausted: false,
@@ -261,18 +324,18 @@ export function CharacterProvider({ children }: Props) {
       return;
     }
 
-    const abilityIndex = characters[index].archetype.abilities.findIndex(a => a.id === id);
+    const abilityIndex = characters[index].archetype.tags.findIndex(a => a.id === id);
     if (abilityIndex < 0) {
       console.error(`failed to find archetype ability with id ${id}`);
       return;
     }
 
     if (value.unlocked !== undefined && value.unlocked !== null) {
-      characters[index].archetype.abilities[abilityIndex].unlocked = value.unlocked;
+      characters[index].archetype.tags[abilityIndex].unlocked = value.unlocked;
     }
 
     if (value.exhausted !== undefined && value.exhausted !== null) {
-      characters[index].archetype.abilities[abilityIndex].exhausted = value.exhausted;
+      characters[index].archetype.tags[abilityIndex].exhausted = value.exhausted;
     }
 
     charactersUpdate(characters);
@@ -293,8 +356,9 @@ export function CharacterProvider({ children }: Props) {
       return;
     }
 
-    characters[index].kinfolk.abilities = ids.map(id => {
-      const matchingAbilities = characters[index].kinfolk.abilities.filter(a => ids.indexOf(a.id) >= 0);
+    // todo: bug here
+    characters[index].kinfolk.tags = ids.map(id => {
+      const matchingAbilities = characters[index].kinfolk.tags.filter(a => ids.indexOf(a.id) >= 0);
       const existingAbility = matchingAbilities.length > 0
         ? matchingAbilities[0]
         : {...DEFAULT_CHARACTER_ABILITY};
@@ -325,18 +389,18 @@ export function CharacterProvider({ children }: Props) {
       return;
     }
 
-    const abilityIndex = characters[index].kinfolk.abilities.findIndex(a => a.id === id);
+    const abilityIndex = characters[index].kinfolk.tags.findIndex(a => a.id === id);
     if (abilityIndex < 0) {
       console.error(`failed to find archetype ability with id ${id}`);
       return;
     }
 
     if (value.unlocked !== undefined && value.unlocked !== null) {
-      characters[index].kinfolk.abilities[abilityIndex].unlocked = value.unlocked;
+      characters[index].kinfolk.tags[abilityIndex].unlocked = value.unlocked;
     }
 
     if (value.exhausted !== undefined && value.exhausted !== null) {
-      characters[index].kinfolk.abilities[abilityIndex].exhausted = value.exhausted;
+      characters[index].kinfolk.tags[abilityIndex].exhausted = value.exhausted;
     }
 
     charactersUpdate(characters);
@@ -372,6 +436,9 @@ export function CharacterProvider({ children }: Props) {
       updateFate: updateFate,
       updateDowntime: updateDowntime,
 
+      updateKeystone: updateKeystone,
+      updateKeystoneAbility: updateKeystoneAbility,
+
       updateArchetype: updateArchetype,
       updateArchetypeAbility: updateArchetypeAbility,
 
@@ -395,6 +462,9 @@ export function CharacterProvider({ children }: Props) {
 
     updateFate,
     updateDowntime,
+
+    updateKeystone,
+    updateKeystoneAbility,
 
     updateArchetype,
     updateArchetypeAbility,

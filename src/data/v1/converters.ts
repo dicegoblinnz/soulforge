@@ -1,6 +1,6 @@
-import {CharacterAbility} from "@/data/types";
+import {CharacterTag} from "@/data/types";
 
-export function idToCharacterAbility (id: number): CharacterAbility {
+export function idToCharacterAbility (id: number): CharacterTag {
   return {
     id: id,
     unlocked: true,

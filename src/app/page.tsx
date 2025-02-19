@@ -5,7 +5,7 @@ import {Box, Card, Tab, useTheme} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
 import {Lore} from "@/components/character/lore";
 import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
-import {Keystone} from "@/components/character/keystone";
+import {Keystone} from "@/components/character/keystones/keystone";
 import {Kinfolk} from "@/components/character/kinfolk";
 import {TemporaryTags} from "@/components/character/temporary_tags";
 import {Afflictions} from "@/components/character/afflictions";

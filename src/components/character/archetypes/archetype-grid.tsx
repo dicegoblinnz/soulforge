@@ -15,12 +15,12 @@ import {useCharacterContext} from "@/context/character/character-context";
 import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 type Props = {
-  archetype: Archetype;
+  keystone: Archetype;
   onSelect: VoidFunction;
   sx?: SxProps;
 };
 
-export function ArchetypeGrid({archetype, onSelect, sx}: Props) {
+export function ArchetypeGrid({keystone, onSelect, sx}: Props) {
   const characterData = useCharacterContext();
 
   const theme = useTheme();
@@ -28,10 +28,10 @@ export function ArchetypeGrid({archetype, onSelect, sx}: Props) {
 
   const cardSize = !isSmall ? 4 : 12;
 
-  const abilityInfo = (archetype.abilities ?? []).length !== 0
+  const abilityInfo = (keystone.tags ?? []).length !== 0
     ? ( // todo: lookup archetype, check category for if party wide, size = 12, else size = 4
       <>
-        {archetype.abilities.map((a, i) => (
+        {keystone.tags.map((a, i) => (
           <Grid size={cardSize} key={`${i}-${a.id}`}>
             <TagCard
               id={a.id}
@@ -52,7 +52,7 @@ export function ArchetypeGrid({archetype, onSelect, sx}: Props) {
     );
 
   const onSelectButtonPressed = () => {
-    characterData.updateArchetype(archetype.id);
+    characterData.updateArchetype(keystone.id);
     onSelect();
   };
 
@@ -66,7 +66,7 @@ export function ArchetypeGrid({archetype, onSelect, sx}: Props) {
     <Grid container spacing={2} sx={sx}>
       <Grid size={12}>
         <Box display="flex" justifyContent="space-between">
-          <Typography variant="h5">{archetype.name}</Typography>
+          <Typography variant="h5">{keystone.name}</Typography>
           {selectButton}
         </Box>
       </Grid>

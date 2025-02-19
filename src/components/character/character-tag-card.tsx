@@ -6,7 +6,7 @@ import {
   SxProps,
   Typography
 } from "@mui/material";
-import {CharacterAbility} from "@/data/types";
+import {CharacterTag} from "@/data/types";
 import {TagCard} from "@/components/character/tag-card";
 
 type ExhaustProps = {
@@ -31,7 +31,7 @@ function AbilityExhaust({exhausted, setExhaust}: ExhaustProps) {
 }
 
 type Props = {
-  ability: CharacterAbility;
+  ability: CharacterTag;
   exhaustable?: boolean;
   onSetExhaust?: (value: boolean) => void;
   sx?: SxProps;
@@ -52,6 +52,11 @@ export function CharacterTagCard({ability, exhaustable, onSetExhaust, sx}: Props
     ) : null;
 
   return (
-    <TagCard id={ability.id} action={abilityAction} exhausted={ability.exhausted} sx={sx}/>
+    <TagCard
+      id={ability.id}
+      action={abilityAction}
+      exhausted={ability.exhausted}
+      sx={sx}
+    />
   );
 }

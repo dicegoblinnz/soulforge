@@ -1,22 +1,22 @@
-import {Archetype, Character, CharacterAbility, CharacterArchetype, Tag} from "@/data/types";
+import {Archetype, Character, CharacterTag, CharacterArchetype, Tag} from "@/data/types";
 
 export const DEFAULT_CHARACTER: Character = {
   afflictions: [],
   archetype: {
     id: 0,
     note: "",
-    abilities: []
+    tags: []
   },
   id: 0,
   keystone: {
     id: 0,
     note: "",
-    abilities: []
+    tags: []
   },
   kinfolk: {
     id: 0,
     note: "",
-    abilities: []
+    tags: []
   },
   lore: {
     name: "",
@@ -61,7 +61,7 @@ export const DEFAULT_TAG: Tag = {
   categories: [],
 };
 
-export const DEFAULT_CHARACTER_ABILITY: CharacterAbility = {
+export const DEFAULT_CHARACTER_ABILITY: CharacterTag = {
   id: -1,
   exhausted: false,
   unlocked: true
@@ -70,11 +70,11 @@ export const DEFAULT_CHARACTER_ABILITY: CharacterAbility = {
 export const DEFAULT_ARCHETYPE: Archetype = {
   id: -1,
   name: "DEFAULT",
-  abilities: []
+  tags: []
 };
 
 export const DEFAULT_CHARACTER_ARCHETYPE: CharacterArchetype = {
   id: -1,
-  abilities: [],
+  tags: [],
   note: ""
 };

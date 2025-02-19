@@ -43,10 +43,10 @@ export function CharacterArchetype({sx}: Props) {
       ) : null
   );
 
-  const abilityInfo = (character.character?.archetype.abilities ?? []).length !== 0
+  const abilityInfo = (character.character?.archetype.tags ?? []).length !== 0
     ? (
       <>
-        {character.character?.archetype.abilities.map((a, i) => (
+        {character.character?.archetype.tags.map((a, i) => (
           <Grid size={cardSize} key={`${i}-${a.id}`}>
             <CharacterTagCard
               ability={a}

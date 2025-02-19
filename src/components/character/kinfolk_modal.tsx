@@ -61,7 +61,7 @@ export function KinfolkModal() {
 
   const [rowSelectionModel, setRowSelectionModel] = useState<GridRowSelectionModel>(
     kinfolkTags.map((kt, i) => {
-      const abilities = (characterData.character?.kinfolk.abilities ?? []);
+      const abilities = (characterData.character?.kinfolk.tags ?? []);
       return abilities
         .map(a => a.id)
         .indexOf(kt.id) >= 0

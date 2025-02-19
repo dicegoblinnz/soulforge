@@ -2,8 +2,8 @@
 
 import {Box, Button, Card, CardContent, CardHeader, Modal} from "@mui/material";
 import {useState} from "react";
-import {archetypes} from "@/data/v1/archetypes";
-import {ArchetypeGrid} from "@/components/character/archetypes/archetype-grid";
+import {keystones} from "@/data/v1/keystones";
+import {KeystoneGrid} from "@/components/character/keystones/keystone-grid";
 
 const style = {
   position: 'absolute',
@@ -13,7 +13,7 @@ const style = {
   maxHeight: '80vh',
 };
 
-export function CharacterArchetypeModal() {
+export function KeystoneModal() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,13 +32,13 @@ export function CharacterArchetypeModal() {
       >
         <Card sx={{width: "1200px", maxWidth: "80vw", ...style}}>
           <CardHeader
-            title="Select Archetype"
+            title="Select Keystone"
             sx={{pb: 0}}
           />
           <CardContent>
             <Box sx={{maxHeight: "60vh", overflowY: 'auto', px: 1}}>
-              {archetypes.map((a, i) => (
-                <ArchetypeGrid key={i} keystone={a} onSelect={handleClose} sx={{mt: 4}}/>
+              {keystones.map((k, i) => (
+                <KeystoneGrid key={i} keystone={k} onSelect={handleClose} sx={{mt: 4}}/>
               ))}
             </Box>
           </CardContent>

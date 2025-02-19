@@ -25,10 +25,10 @@ export function Kinfolk({sx}: Props) {
 
   const cardSize = !isSmall ? 4 : 12;
 
-  const abilityInfo = (character.character?.kinfolk.abilities ?? []).length !== 0
+  const abilityInfo = (character.character?.kinfolk.tags ?? []).length !== 0
     ? (
       <>
-        {character.character?.kinfolk.abilities.map((a, i) => (
+        {character.character?.kinfolk.tags.map((a, i) => (
           <Grid size={cardSize} key={`${i}-${a.id}`}>
             <CharacterTagCard
               ability={a}

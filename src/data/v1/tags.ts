@@ -1069,5 +1069,227 @@ export const tags: Tag[] = [
     name: "Construct Forge",
     description: "The party can forge constructs by combining existing Mundane Tags from items or resources.",
     categories: [ETagCategories.ARCHETYPE, ETagCategories.PARTY_WIDE],
+  },
+
+
+  // Keystones
+  {
+    id: 157,
+    name: "Phantom",
+    description: "You can dip into shadows of others, if they are unwilling you must succeed a stealth roll against them otherwise they will notice you and kick you out. If you are inside the shadow of a creature you will get the invisible tag.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Manipulate the next action of the creature with their shadow."
+    }
+  },
+  {
+    id: 158,
+    name: "Phase",
+    description: "Phase through people or attacks gain d12 when you use your action to defend.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Phase through an object/barrier. For the scene, if you passed through more barriers each additional one will trigger a Fates Toll."
+    }
+  },
+  {
+    id: 159,
+    name: "Shadow Bind",
+    description: "You can grapple people that are in shadow so long as you are touching that shadow. You can add your keystone to any grapple check. You can extend your shadow upto 30ft if there is enough light around.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "grapple a Huge creature or 2 large creatures or 9 medium creatures within 60ft gaining the 3 x Restrained tag."
+    }
+  },
+  {
+    id: 160,
+    name: "Darkness",
+    description: "Increases Dark Vision by 90ft and can concentrate darkness around itself in an area of 20ft.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Make the darkness created become a barrier with 5 tags."
+    }
+  },
+  {
+    id: 161,
+    name: "Shadow Step",
+    description: "You can teleport between shadows up to 30ft away using an action.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Teleport in the nick of time to safety."
+    }
+  },
+  {
+    id: 162,
+    name: "Outer Body Experience",
+    description: "You leave your body and remove physical restrictions making your Force and Finesse and Defence dice d20s for the scene. You double your movement speed and gain 5 actions per turn instead of 3. Leaving your body vulnerable, any damage dealt will deal an extra d10 to damage.",
+    categories: [ETagCategories.UTILITY, ETagCategories.ULTIMATE],
+  },
+
+
+  {
+    id: 163,
+    name: "Lightning",
+    description: "As a Keystone Action you can shoot a bolt of lightning to a target within 120 ft range, if you are in a charged environment you get advantage on the roll.",
+    categories: [ETagCategories.DAMAGE],
+    exhaust: {
+      description: "Unleash a chain lightning attack on up to 4 targets within range, it can bounce back to the same target for additional damage, if you choose to bounce it off yourself you get resistance to the damage dealt."
+    }
+  },
+  {
+    id: 164,
+    name: "Wind",
+    description: "You can use the help action on an ally and give them an extra d8 on their action.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Convert this tag temporarily to fly for the rest of the scene."
+    }
+  },
+  {
+    id: 165,
+    name: "Thunder",
+    description: "Using a Keystone action you can create a thunderous clap on an area of 15ft. Any successes will count as Stagger.",
+    categories: [ETagCategories.DAMAGE],
+    exhaust: {
+      description: "roll an additional d20 to the roll and blow them away up to 30ft."
+    }
+  },
+  {
+    id: 166,
+    name: "Water",
+    description: "Use a Keystone action and any successes gained creates temporary barrier tags for you or an ally within 30ft.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "heal any ally within 30ft with your keystone action and d20."
+    }
+  },
+  {
+    id: 167,
+    name: "Frost",
+    description: "Using your keystone action you create Ice Spikes that will cause a Restrained condition tag for every 3 successes.",
+    categories: [ETagCategories.DEBUFF],
+    exhaust: {
+      description: "give the enemy the Frozen condition."
+    }
+  },
+  {
+    id: 168,
+    name: "Cloud",
+    description: "As an action (as if using your keystone action), you can create a fog environmental tag. The number of tags you generate equals your successes, and each tag creates a 10-foot radius. When tags are stacked, the fog grows by an additional 10 feet per tag, up to a maximum range of 120 feet.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Produce an illusionary fog cloud that conceals you and your allies within 30 feet, granting a bonus on all d20 stealth rolls for the scene."
+    }
+  },
+  {
+    id: 169,
+    name: "Eye of the Storm",
+    description: "The Storm Herald unleashes a devastating storm, gaining 5 Environmental Tag of the following elements: Lightning, Wind, Thunder, Water, Cloud, and Frost of your choice. You can Break one of the environmental tags to treat it as an exhaustion effect of your abilities.",
+    categories: [ETagCategories.UTILITY, ETagCategories.ULTIMATE],
+  },
+
+
+  {
+    id: 170,
+    name: "Vigilant Defence",
+    description: "You get a base defensive d8 protection.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Increase the defense to 2d8 for the rest of the scene.",
+    },
+  },
+  {
+    id: 171,
+    name: "Get Down!",
+    description: "Using a reaction you can run to an ally in range to protect them and take the attack instead of them.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Pull an ally from danger completely negating any effect.",
+    },
+  },
+  {
+    id: 172,
+    name: "Shield Wall",
+    description: "You act as a wall for allies in 15 ft range giving them a d8 of physical defense as an action for the rest of the round.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Give allies resistance to physical damage for the scene in a 15 ft radius.",
+    },
+  },
+  {
+    id: 173,
+    name: "Iron Bastion",
+    description: "All damage received will be resisted for this scene, and you gain 5 temporary Protection tags. You can spend a protection tag to leap into protecting allies within far range.",
+    categories: [ETagCategories.ULTIMATE],
+  },
+
+
+  {
+    id: 174,
+    name: "Radiant",
+    description: "You illuminate bright light in a 30 ft area and can use the help action up to 60 ft away.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Let out a d20 beam of light. Any successes recover tags to anyone within 60 ft range of you.",
+    },
+  },
+  {
+    id: 175,
+    name: "Fire",
+    description: "Your blade is perpetually on fire, gaining d8 on all combat actions using this keystone.",
+    categories: [ETagCategories.DAMAGE],
+    exhaust: {
+      description: "Turn the blade into a 2d8 bonus for the rest of the scene.",
+    }
+  },
+  {
+    id: 176,
+    name: "Arcane",
+    description: "Using a Keystone action, you send a wave of your slash to a target within 60 ft range.",
+    categories: [ETagCategories.DAMAGE],
+    exhaust: {
+      description: "Let out a powerful crushing blow that ignores defences.",
+      afflictions: [],
+    },
+  },
+  {
+    id: 177,
+    name: "Solar Nova",
+    description: "You create a powerful 50ft explosion of 1d20 Fire, 1d20 Radiant, and 1d20 Arcane. You can then combine the successes to either deal damage or recover tags.",
+    categories: [ETagCategories.UTILITY, ETagCategories.ULTIMATE],
+  },
+
+
+  {
+    id: 178,
+    name: "Illusion",
+    description: "Using an action, you create a clone of yourself and can control it to act on your behalf and communicate through it. Any damage to it causes it to disappear.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Make the clone of another person for the scene, you control it.",
+    },
+  },
+  {
+    id: 179,
+    name: "Healing",
+    description: "You can duplicate the effect of a tag that you see from allies as an action. You cannot gain the Exhausted effect. If an Action is required to activate, you must spend the action.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "Copy an entire other tag, temporarily having it for the scene.",
+    },
+  },
+  {
+    id: 180,
+    name: "Shadow",
+    description: "Swap places with a willing creature (or your clone) as an action.",
+    categories: [ETagCategories.UTILITY],
+    exhaust: {
+      description: "You can swap with an object in far range, including items that are worn or carried."
+    }
+  },
+  {
+    id: 181,
+    name: "Tag Team",
+    description: "You create a new clone of yourself for the scene that acts on its own turn. Gain 5 Temporary Clone Tags. You can exhaust a clone tag to use an action to copy a tag (regardless of allies or enemies). All help actions between you and your clone will give a bonus d8 dice.",
+    categories: [ETagCategories.UTILITY, ETagCategories.ULTIMATE],
   }
 ];

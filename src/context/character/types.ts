@@ -27,8 +27,8 @@ export type CharacterContextProps = {
   updateDowntime: (value: number) => void;
 
   // Keystone
-  // updateKeystone: (id: number) => void;
-  // updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
+  updateKeystone: (id: number) => void;
+  updateKeystoneAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Archetype
   updateArchetype: (id: number) => void;

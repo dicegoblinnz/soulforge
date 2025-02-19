@@ -1,7 +1,7 @@
 'use client';
 
 import {Lore} from "@/components/character/lore";
-import {Keystone} from "@/components/character/keystone";
+import {Keystone} from "@/components/character/keystones/keystone";
 import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
 import {Kinfolk} from "@/components/character/kinfolk";
 import {TemporaryTags} from "@/components/character/temporary_tags";
