@@ -1,4 +1,4 @@
-import {Archetype, Character, CharacterAbility, CharacterArchetype} from "@/data/types";
+import {Archetype, Character, CharacterAbility, CharacterArchetype, Tag} from "@/data/types";
 
 export const DEFAULT_CHARACTER: Character = {
   afflictions: [],
@@ -53,6 +53,12 @@ export const DEFAULT_CHARACTER: Character = {
   },
   temporary_tags: [],
   traits: []
+};
+
+export const DEFAULT_TAG: Tag = {
+  id: -1,
+  name: "",
+  categories: [],
 };
 
 export const DEFAULT_CHARACTER_ABILITY: CharacterAbility = {

@@ -10,9 +10,7 @@ import {
 } from "@mui/material";
 import {Archetype} from "@/data/types";
 import Grid from "@mui/material/Grid2";
-import {Ability} from "@/components/character/ability";
-import {tags} from "@/data/v1/tags";
-import {DEFAULT_CHARACTER_ABILITY} from "@/data/defaults";
+import {TagCard} from "@/components/character/tag-card";
 import {useCharacterContext} from "@/context/character/character-context";
 
 type Props = {
@@ -29,9 +27,8 @@ export function ArchetypeCard({archetype, onSelect, sx}: Props) {
       <>
         {archetype.abilities.map((a, i) => (
           <Grid size={4} key={`${i}-${a.id}`}>
-            <Ability
-              ability={tags.find(t => t.id === a.id) ?? DEFAULT_CHARACTER_ABILITY}
-              exhaustable={false}
+            <TagCard
+              id={a.id}
               sx={{height: "100%"}}
             />
           </Grid>

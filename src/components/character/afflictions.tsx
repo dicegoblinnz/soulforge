@@ -6,7 +6,7 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/character/ability";
+import {TagCard} from "@/components/character/tag-card";
 import {idToCharacterAbility} from "@/data/v1/converters";
 
 type Props = {
@@ -25,15 +25,15 @@ export function Afflictions({sx}: Props) {
 
       <Grid container spacing={2} sx={{mt: 2}}>
         <Grid size={12}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <TagCard ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <TagCard ability={idToCharacterAbility(0)}/>
         </Grid>
 
         <Grid size={12}>
-          <Ability ability={idToCharacterAbility(0)}/>
+          <TagCard ability={idToCharacterAbility(0)}/>
         </Grid>
       </Grid>
     </Box>

@@ -4,13 +4,15 @@ import {
   Box,
   Stack,
   Typography,
-  SxProps, Card, CardContent
+  Card,
+  CardContent,
+  SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/character/ability";
 import {CharacterArchetypeModal} from "@/components/character/archetypes/character-archetype-modal";
 import {useCharacterContext} from "@/context/character/character-context";
 import {archetypes} from "@/data/v1/archetypes";
+import {CharacterTagCard} from "@/components/character/character-tag-card";
 
 type Props = {
   sx?: SxProps;
@@ -28,7 +30,7 @@ export function CharacterArchetype({sx}: Props) {
       <>
         {character.character?.archetype.abilities.map((a, i) => (
           <Grid size={4} key={`${i}-${a.id}`}>
-            <Ability ability={a} sx={{height: "100%"}}/>
+            <CharacterTagCard ability={a} sx={{height: "100%"}}/>
           </Grid>
         ))}
       </>

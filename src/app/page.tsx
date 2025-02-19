@@ -1,7 +1,7 @@
 'use client';
 
 import {TabContext, TabList, TabPanel} from "@mui/lab";
-import {Box, Card, Stack, Tab, Typography, useTheme} from "@mui/material";
+import {Box, Card, Tab, useTheme} from "@mui/material";
 import {SyntheticEvent, useState} from "react";
 import {Lore} from "@/components/character/lore";
 import {CharacterArchetype} from "@/components/character/archetypes/character-archetype";
@@ -12,13 +12,14 @@ import {Afflictions} from "@/components/character/afflictions";
 import Grid from "@mui/material/Grid2";
 import {Resources} from "@/components/character/resource/resources";
 import {CharacterProvider} from "@/context/character/character-provider";
-import {DownloadCharacterButton} from "@/components/download-character";
-import {LoadCharacterButton} from "@/components/load-character";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
+import {MainHeader} from "@/components/main/main-header";
 
 
 export default function Home() {
   const [value, setValue] = useState('1');
   const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -26,18 +27,9 @@ export default function Home() {
 
   return (
     <CharacterProvider>
-      <div style={{display: "flex", justifyContent: "center", marginTop: theme.spacing(2)}}>
-        <main style={{width: "1000px"}}>
-          <Box display="flex" flexDirection="row" justifyContent="space-between">
-            <Typography variant="h4" color="textPrimary">
-              Character sheet
-            </Typography>
-
-            <Stack direction="row" spacing={2} alignItems="center">
-              <DownloadCharacterButton variant="contained"/>
-              <LoadCharacterButton variant="contained" color="secondary"/>
-            </Stack>
-          </Box>
+      <main style={{maxWidth: "100%", margin: theme.spacing(2), display: "flex", justifyContent: "center"}}>
+        <Box sx={{maxWidth: isSmall ? "100%" : "1000px"}}>
+          <MainHeader isSmall={isSmall}/>
 
           <Lore sx={{mt: 4}}/>
 
@@ -74,8 +66,8 @@ export default function Home() {
               </TabPanel>
             </Card>
           </TabContext>
-        </main>
-      </div>
+        </Box>
+      </main>
     </CharacterProvider>
   );
 }

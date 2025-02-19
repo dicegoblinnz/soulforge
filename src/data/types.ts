@@ -51,7 +51,7 @@ export type TagReference = {
 export type Tag = {
   id: number;
   name: string;
-  description: string | null;
+  description?: string;
   categories: ETagCategories[];
   afflictions?: AfflictionReference[];
   tags?: TagReference[];

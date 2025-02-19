@@ -8,10 +8,10 @@ import {
   SxProps
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
-import {Ability} from "@/components/character/ability";
 import {KinfolkModal} from "@/components/character/kinfolk_modal";
 import {useCharacterContext} from "@/context/character/character-context";
 import {SoulforgeCard} from "@/components/soulforge-card";
+import {CharacterTagCard} from "@/components/character/character-tag-card";
 
 type Props = {
   sx?: SxProps;
@@ -25,7 +25,7 @@ export function Kinfolk({sx}: Props) {
       <>
         {character.character?.kinfolk.abilities.map((a, i) => (
           <Grid size={4} key={`${i}-${a.id}`}>
-            <Ability ability={a} sx={{height: "100%"}}/>
+            <CharacterTagCard ability={a} sx={{height: "100%"}}/>
           </Grid>
         ))}
       </>
