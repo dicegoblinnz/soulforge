@@ -30,7 +30,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import dynamic from "next/dynamic";
 import {useSettingsContext} from "@/context/settings/settings-context";
 
-const DynamicScrollTop = dynamic(() => import('@/components/scroll_top'), {ssr: false});
+const DynamicScrollTop = dynamic(() => import('@/components/scroll-top'), {ssr: false});
 
 type Props = {
   sx?: SxProps;

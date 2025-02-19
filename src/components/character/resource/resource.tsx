@@ -37,7 +37,7 @@ export function Resource({ value, renderIcon, name, onUpdate }: Props) {
   // const setValue = (newValue: number) => onUpdate(newValue);
 
   return (
-    <SoulforgeCard>
+    <SoulforgeCard sx={{height: "100%"}}>
       <CardContent
         sx={{
           display: "flex",
