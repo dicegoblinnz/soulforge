@@ -103,7 +103,7 @@ export default function Home() {
           <MainHeader isSmall={isSmall}/>
 
           <TabContext value={value}>
-            <Card variant="outlined" sx={{mt: 4}}>
+            <Card variant="outlined" sx={{mt: 4, mb: 12}}>
               {isSmall ? smallLayout : mediumLayout}
             </Card>
           </TabContext>

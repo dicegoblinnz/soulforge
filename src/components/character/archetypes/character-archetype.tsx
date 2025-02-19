@@ -27,8 +27,21 @@ export function CharacterArchetype({sx}: Props) {
   const cardSize = !isSmall ? 4 : 12;
 
   const archetype = archetypes.find(a => a.id === character.character?.archetype.id);
-  const cardTitle = (archetype !== undefined && archetype !== null)
-    ? `Archetype: ${archetype.name}` : "Archetype";
+
+  const title = (
+    <Typography variant="h5" color="textPrimary">
+      {(archetype?.name !== null && archetype?.name !== undefined) && (archetype.name ?? '').length !== 0
+        ? archetype.name : "Archetype"}
+    </Typography>
+  );
+  const subtitle = (
+    (archetype?.name !== null && archetype?.name !== undefined) && (archetype.name ?? '').length !== 0
+      ? (
+        <Typography variant="body1" color="textSecondary">
+          Archetype
+        </Typography>
+      ) : null
+  );
 
   const abilityInfo = (character.character?.archetype.abilities ?? []).length !== 0
     ? (
@@ -58,12 +71,10 @@ export function CharacterArchetype({sx}: Props) {
   return (
     <Box sx={sx}>
       <Stack justifyContent="space-between" direction="row">
-        <Typography
-          variant="h5"
-          component="h5"
-        >
-          {cardTitle}
-        </Typography>
+        <Stack spacing={0}>
+          {title}
+          {subtitle}
+        </Stack>
 
         <CharacterArchetypeModal/>
       </Stack>

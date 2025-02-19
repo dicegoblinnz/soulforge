@@ -22,7 +22,7 @@ export function Resources({sx}: Props) {
   const theme = useTheme();
   const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
 
-  const cardSize = !isSmall ? 2 : 4;
+  const cardSize = !isSmall ? 2 : 6;
 
   const fate = character.character?.resources.fate.value ?? -1;
   const downtime = character.character?.resources.downtime.value ?? -1;
