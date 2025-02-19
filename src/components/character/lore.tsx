@@ -182,74 +182,79 @@ export function Lore({sx}: Props) {
 
   const smallGridLayout = (<>
     <Grid size={12}>
-      {nameTextField}
-    </Grid>
-
-    <Grid size={12}>
-      {trueNameTextField}
-    </Grid>
-
-
-    <Grid size={12}>
-      {aspirationSelect}
-    </Grid>
-
-    <Grid size={12}>
-      {aspirationNoteTextField}
+      <SoulforgeCard>
+        <CardContent sx={{display: "flex", flexDirection: "column", gap: 2}}>
+          {nameTextField}
+          {trueNameTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
 
     <Grid size={12}>
-      {coreValueSelect}
+      <SoulforgeCard>
+        <CardContent>
+          {aspirationSelect}
+          {aspirationNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
     <Grid size={12}>
-      {coreValueNoteTextField}
+      <SoulforgeCard>
+        <CardContent>
+          {coreValueSelect}
+          {coreValueNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
-
     <Grid size={12}>
-      {viceSelect}
-    </Grid>
-
-    <Grid size={12}>
-      {viceNoteTextField}
+      <SoulforgeCard>
+        <CardContent>
+          {viceSelect}
+          {viceNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
   </>);
 
   const largeGridLayout = (<>
-    <Grid size={6}>
-      {nameTextField}
-    </Grid>
-
-    <Grid size={6}>
-      {trueNameTextField}
-    </Grid>
-
-
-    <Grid size={4}>
-      {aspirationSelect}
-    </Grid>
-
-    <Grid size={4}>
-      {coreValueSelect}
-    </Grid>
-
-    <Grid size={4}>
-      {viceSelect}
+    <Grid size={12}>
+      <SoulforgeCard>
+        <CardContent sx={{display: "flex", flexDirection: "row", gap: 2}}>
+          {nameTextField}
+          {trueNameTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
 
     <Grid size={4}>
-      {aspirationNoteTextField}
+      <SoulforgeCard>
+        <CardContent>
+          {aspirationSelect}
+          {aspirationNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
     <Grid size={4}>
-      {coreValueNoteTextField}
+      <SoulforgeCard>
+        <CardContent>
+          {coreValueSelect}
+          {coreValueNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
 
     <Grid size={4}>
-      {viceNoteTextField}
+      <SoulforgeCard>
+        <CardContent>
+          {viceSelect}
+          {viceNoteTextField}
+        </CardContent>
+      </SoulforgeCard>
     </Grid>
   </>);
 
@@ -262,13 +267,9 @@ export function Lore({sx}: Props) {
         Lore
       </Typography>
 
-      <SoulforgeCard sx={{mt: 2}}>
-        <CardContent>
-          <Grid container spacing={2}>
-            {isSmall ? smallGridLayout : largeGridLayout}
-          </Grid>
-        </CardContent>
-      </SoulforgeCard>
+      <Grid container spacing={2}>
+        {isSmall ? smallGridLayout : largeGridLayout}
+      </Grid>
     </Box>
   );
 }

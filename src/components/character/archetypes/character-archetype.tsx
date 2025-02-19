@@ -6,13 +6,14 @@ import {
   Typography,
   Card,
   CardContent,
-  SxProps
+  SxProps, useTheme
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {CharacterArchetypeModal} from "@/components/character/archetypes/character-archetype-modal";
 import {useCharacterContext} from "@/context/character/character-context";
 import {archetypes} from "@/data/v1/archetypes";
 import {CharacterTagCard} from "@/components/character/character-tag-card";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 type Props = {
   sx?: SxProps;
@@ -20,6 +21,10 @@ type Props = {
 
 export function CharacterArchetype({sx}: Props) {
   const character = useCharacterContext();
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
+  const cardSize = !isSmall ? 4 : 12;
 
   const archetype = archetypes.find(a => a.id === character.character?.archetype.id);
   const cardTitle = (archetype !== undefined && archetype !== null)
@@ -29,7 +34,7 @@ export function CharacterArchetype({sx}: Props) {
     ? (
       <>
         {character.character?.archetype.abilities.map((a, i) => (
-          <Grid size={4} key={`${i}-${a.id}`}>
+          <Grid size={cardSize} key={`${i}-${a.id}`}>
             <CharacterTagCard
               ability={a}
               onSetExhaust={v => character.updateArchetypeAbility(a.id, {exhausted: v})}

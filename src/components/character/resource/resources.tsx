@@ -3,7 +3,7 @@
 import {
   Box,
   Typography,
-  SxProps, SvgIconProps
+  SxProps, SvgIconProps, useTheme
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import DiamondIcon from '@mui/icons-material/Diamond';
@@ -11,6 +11,7 @@ import BedtimeIcon from '@mui/icons-material/Bedtime';
 import TsunamiIcon from '@mui/icons-material/Tsunami';
 import {Resource} from "@/components/character/resource/resource";
 import {useCharacterContext} from "@/context/character/character-context";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 type Props = {
   sx?: SxProps;
@@ -18,6 +19,10 @@ type Props = {
 
 export function Resources({sx}: Props) {
   const character = useCharacterContext();
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
+  const cardSize = !isSmall ? 2 : 4;
 
   const fate = character.character?.resources.fate.value ?? -1;
   const downtime = character.character?.resources.downtime.value ?? -1;
@@ -44,7 +49,7 @@ export function Resources({sx}: Props) {
       </Typography>
 
       <Grid container spacing={2} sx={{mt: 2}}>
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Fate"
             renderIcon={renderDiamondIcon}
@@ -53,7 +58,7 @@ export function Resources({sx}: Props) {
           />
         </Grid>
 
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Downtime"
             renderIcon={renderBedtimeIcon}
@@ -62,7 +67,7 @@ export function Resources({sx}: Props) {
           />
         </Grid>
 
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Flow 01"
             renderIcon={renderTsunamiIcon}
@@ -71,7 +76,7 @@ export function Resources({sx}: Props) {
           />
         </Grid>
 
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Flow 02"
             renderIcon={renderTsunamiIcon}
@@ -80,7 +85,7 @@ export function Resources({sx}: Props) {
           />
         </Grid>
 
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Flow 03"
             renderIcon={renderTsunamiIcon}
@@ -89,7 +94,7 @@ export function Resources({sx}: Props) {
           />
         </Grid>
 
-        <Grid size={2}>
+        <Grid size={cardSize}>
           <Resource
             name="Flow 04"
             renderIcon={renderTsunamiIcon}

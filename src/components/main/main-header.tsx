@@ -11,16 +11,29 @@ export function MainHeader({isSmall}: Props) {
   const character = useCharacterContext();
 
   const name = character.character?.lore.name;
+  const trueName = character.character?.lore.true_name;
+
   const title = (
     <Typography variant="h4" color="textPrimary">
-      {(name !== null && name !== undefined) || (name ?? '').length !== 0
+      {(name !== null && name !== undefined) && (name ?? '').length !== 0
         ? name : "Character sheet"}
     </Typography>
+  );
+  const subtitle = (
+    (trueName !== null && trueName !== undefined) && (trueName ?? '').length !== 0
+      ? (
+        <Typography variant="h6" color="textSecondary">
+          {trueName}
+        </Typography>
+      ) : null
   );
 
   return (
     <Stack direction={isSmall ? "column" : "row"} spacing={2} justifyContent="space-between">
-      {title}
+      <Stack spacing={0}>
+        {title}
+        {subtitle}
+      </Stack>
 
       <Stack direction="row" spacing={2} alignItems="center">
         <DownloadCharacterButton variant="contained"/>

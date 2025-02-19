@@ -102,7 +102,7 @@ export default function Loading() {
       alignItems="center"
       justifyContent="center"
     >
-      <StyledLogo src="/soulforge_example/dice_goblin.webp" alt={"Gobby"} width={256} height={256}/>
+      <StyledLogo src="/soulforge/dice_goblin.webp" alt={"Gobby"} width={256} height={256}/>
     </StyledBox>
   );
 }

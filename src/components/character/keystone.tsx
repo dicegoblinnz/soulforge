@@ -8,11 +8,12 @@ import {
   Select,
   Stack,
   Typography,
-  SxProps
+  SxProps, useTheme
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import {idToCharacterAbility} from "@/data/v1/converters";
 import {CharacterTagCard} from "@/components/character/character-tag-card";
+import {useBreakpointMediaQuery} from "@/hooks/use-screen-breakpoints";
 
 function KeystoneSelect() {
   return (
@@ -33,6 +34,11 @@ type Props = {
 };
 
 export function Keystone({sx}: Props) {
+  const theme = useTheme();
+  const isSmall = useBreakpointMediaQuery(theme.breakpoints.down("sm"));
+
+  const cardSize = !isSmall ? 6 : 12;
+
   return (
     <Box sx={sx}>
       <Stack justifyContent="space-between" direction="row">
@@ -47,11 +53,11 @@ export function Keystone({sx}: Props) {
       </Stack>
 
       <Grid container spacing={2} sx={{mt: 2}}>
-        <Grid size={6}>
+        <Grid size={cardSize}>
           <CharacterTagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
-        <Grid size={6}>
+        <Grid size={cardSize}>
           <CharacterTagCard ability={idToCharacterAbility(0)} sx={{height: "100%"}}/>
         </Grid>
 
