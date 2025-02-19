@@ -30,7 +30,11 @@ export function CharacterArchetype({sx}: Props) {
       <>
         {character.character?.archetype.abilities.map((a, i) => (
           <Grid size={4} key={`${i}-${a.id}`}>
-            <CharacterTagCard ability={a} sx={{height: "100%"}}/>
+            <CharacterTagCard
+              ability={a}
+              onSetExhaust={v => character.updateArchetypeAbility(a.id, {exhausted: v})}
+              sx={{height: "100%"}}
+            />
           </Grid>
         ))}
       </>

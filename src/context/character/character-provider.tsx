@@ -223,6 +223,67 @@ export function CharacterProvider({ children }: Props) {
   ]);
 
 
+  // Archetype
+  const updateArchetype = useCallback((id: number) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    characters[index].archetype.id = id;
+
+    const archetype = archetypes.find(a => a.id === id);
+    if (archetype === undefined || archetype === null) {
+      console.error(`failed to find archetype with id ${id}`);
+      return;
+    }
+
+    characters[index].archetype.abilities = archetype.abilities.map(a => ({
+      id: a.id,
+      unlocked: true,
+      exhausted: false,
+    }));
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+  const updateArchetypeAbility = useCallback((id: number, value: {unlocked?: boolean, exhausted?: boolean}) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    const abilityIndex = characters[index].archetype.abilities.findIndex(a => a.id === id);
+    if (abilityIndex < 0) {
+      console.error(`failed to find archetype ability with id ${id}`);
+      return;
+    }
+
+    if (value.unlocked !== undefined && value.unlocked !== null) {
+      characters[index].archetype.abilities[abilityIndex].unlocked = value.unlocked;
+    }
+
+    if (value.exhausted !== undefined && value.exhausted !== null) {
+      characters[index].archetype.abilities[abilityIndex].exhausted = value.exhausted;
+    }
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
+
+
   // Kinfolk
   const updateAllKinfolkAbilities = useCallback((ids: number[]) => {
     const index = getSelectedCharacterIndex();
@@ -258,37 +319,6 @@ export function CharacterProvider({ children }: Props) {
   ]);
 
 
-  const updateArchetype = useCallback((id: number) => {
-    const index = getSelectedCharacterIndex();
-
-    if (index < 0) {
-      console.error(`failed to find character with id ${selectedCharacter}`);
-      return;
-    }
-
-    characters[index].archetype.id = id;
-
-    const archetype = archetypes.find(a => a.id === id);
-    if (archetype === undefined || archetype === null) {
-      console.error(`failed to find archetype with id ${id}`);
-      return;
-    }
-
-    characters[index].archetype.abilities = archetype.abilities.map(a => ({
-      id: a.id,
-      unlocked: true,
-      exhausted: false,
-    }));
-
-    charactersUpdate(characters);
-  }, [
-    characters,
-    charactersUpdate,
-    selectedCharacter,
-    getSelectedCharacterIndex
-  ]);
-
-
   const memo = useMemo(() => {
     const index = getSelectedCharacterIndex();
     const character = index < 0 ? null : characters[index];
@@ -299,17 +329,23 @@ export function CharacterProvider({ children }: Props) {
       character: character,
       allCharacterMetaData: metaData,
       updateSelectedCharacter: selectedCharacterUpdate,
+
       updateName: updateName,
       updateTrueName: updateTrueName,
+
       updateAspiration: updateAspiration,
       updateCoreValue: updateCoreValue,
       updateVice: updateVice,
       updateAspirationNote: updateAspirationNote,
       updateCoreValueNote: updateCoreValueNote,
       updateViceNote: updateViceNote,
+
       updateFate: updateFate,
       updateDowntime: updateDowntime,
+
       updateArchetype: updateArchetype,
+      updateArchetypeAbility: updateArchetypeAbility,
+
       updateAllKinfolkAbilities: updateAllKinfolkAbilities
     };
   }, [
@@ -324,9 +360,10 @@ export function CharacterProvider({ children }: Props) {
     updateAspirationNote,
     updateCoreValueNote,
     updateViceNote,
-    updateArchetype,
     updateFate,
     updateDowntime,
+    updateArchetype,
+    updateArchetypeAbility,
     updateAllKinfolkAbilities
   ]);
 

@@ -39,7 +39,7 @@ type Props = {
 
 export function CharacterTagCard({ability, exhaustable, onSetExhaust, sx}: Props) {
   const setExhaust = (value: boolean) => {
-    if (onSetExhaust)
+    if (onSetExhaust !== undefined)
       onSetExhaust(value);
   };
 

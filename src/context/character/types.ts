@@ -32,7 +32,7 @@ export type CharacterContextProps = {
 
   // Archetype
   updateArchetype: (id: number) => void;
-  // updateArchetypeAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
+  updateArchetypeAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Kinfolk
   // updateKinfolk: (id: number) => void;
