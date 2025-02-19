@@ -317,6 +317,35 @@ export function CharacterProvider({ children }: Props) {
     selectedCharacter,
     getSelectedCharacterIndex
   ]);
+  const updateKinfolkAbility = useCallback((id: number, value: {unlocked?: boolean, exhausted?: boolean}) => {
+    const index = getSelectedCharacterIndex();
+
+    if (index < 0) {
+      console.error(`failed to find character with id ${selectedCharacter}`);
+      return;
+    }
+
+    const abilityIndex = characters[index].kinfolk.abilities.findIndex(a => a.id === id);
+    if (abilityIndex < 0) {
+      console.error(`failed to find archetype ability with id ${id}`);
+      return;
+    }
+
+    if (value.unlocked !== undefined && value.unlocked !== null) {
+      characters[index].kinfolk.abilities[abilityIndex].unlocked = value.unlocked;
+    }
+
+    if (value.exhausted !== undefined && value.exhausted !== null) {
+      characters[index].kinfolk.abilities[abilityIndex].exhausted = value.exhausted;
+    }
+
+    charactersUpdate(characters);
+  }, [
+    characters,
+    charactersUpdate,
+    selectedCharacter,
+    getSelectedCharacterIndex
+  ]);
 
 
   const memo = useMemo(() => {
@@ -346,25 +375,32 @@ export function CharacterProvider({ children }: Props) {
       updateArchetype: updateArchetype,
       updateArchetypeAbility: updateArchetypeAbility,
 
-      updateAllKinfolkAbilities: updateAllKinfolkAbilities
+      updateAllKinfolkAbilities: updateAllKinfolkAbilities,
+      updateKinfolkAbility: updateKinfolkAbility
     };
   }, [
     characters,
     getSelectedCharacterIndex,
     selectedCharacterUpdate,
+
     updateName,
     updateTrueName,
+
     updateAspiration,
     updateCoreValue,
     updateVice,
     updateAspirationNote,
     updateCoreValueNote,
     updateViceNote,
+
     updateFate,
     updateDowntime,
+
     updateArchetype,
     updateArchetypeAbility,
-    updateAllKinfolkAbilities
+
+    updateAllKinfolkAbilities,
+    updateKinfolkAbility
   ]);
 
   return (

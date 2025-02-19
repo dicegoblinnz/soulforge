@@ -25,7 +25,11 @@ export function Kinfolk({sx}: Props) {
       <>
         {character.character?.kinfolk.abilities.map((a, i) => (
           <Grid size={4} key={`${i}-${a.id}`}>
-            <CharacterTagCard ability={a} sx={{height: "100%"}}/>
+            <CharacterTagCard
+              ability={a}
+              onSetExhaust={v => character.updateKinfolkAbility(a.id, {exhausted: v})}
+              sx={{height: "100%"}}
+            />
           </Grid>
         ))}
       </>

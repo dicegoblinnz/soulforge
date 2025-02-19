@@ -36,8 +36,8 @@ export type CharacterContextProps = {
 
   // Kinfolk
   // updateKinfolk: (id: number) => void;
-  // updateKinfolkAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
   updateAllKinfolkAbilities: (ids: number[]) => void;
+  updateKinfolkAbility: (id: number, value: {unlocked?: boolean, exhausted?: boolean}) => void;
 
   // Traits
   // updateTrait: (oldId: number, newId: number) => void;
